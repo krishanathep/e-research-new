@@ -16,10 +16,14 @@ use App\Http\Controllers\AdminDashboardController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('admin', AdminDashboardController::class);
 
 Route::resource('products', ProductController::class);
 
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
