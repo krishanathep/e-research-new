@@ -25,7 +25,7 @@
     <!-- /.login-box-body -->
     <div class="card">
         <div class="card-body login-card-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">Welcome back, please login to your account.</p>
 
             <form method="post" action="{{ url('/login') }}">
                 @csrf
@@ -69,12 +69,11 @@
                     </div>
 
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                        <button type="submit" class="btn btn-success btn-block">Sign In</button>
                     </div>
 
                 </div>
             </form>
-
             <p class="mb-1">
                 <a href="{{ route('password.request') }}">I forgot my password</a>
             </p>

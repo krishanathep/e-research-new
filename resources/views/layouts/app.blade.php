@@ -13,6 +13,7 @@
 
     @yield('third_party_stylesheets')
 
+
     @stack('page_css')
 </head>
 
@@ -86,5 +87,7 @@
 @yield('third_party_scripts')
 
 @stack('page_scripts')
+
+</script>
 </body>
 </html>
