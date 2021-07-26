@@ -45,8 +45,10 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Members $members)
+    public function show($id)
     {
+        $members = Members::findOrFail($id);
+
         return view('admin.members.show', compact('members'));
     }
 
@@ -58,7 +60,7 @@ class MemberController extends Controller
      */
     public function edit(Members $members)
     {
-        return view('admin.members.edit', compact('members'));
+        return view('admin.members.edit', compact('members', 'id'));
     }
 
     /**

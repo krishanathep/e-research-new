@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">View Concep Development</div>
                     <div class="card-body">
-                        ...
+                        <h1>{{ $concepdevelopment->id }}</h1>
                     </div>
                 </div>
             </div>

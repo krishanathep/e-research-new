@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Concepdevelopment extends Model
 {
     protected $table = 'ers_projects';
+
 }
