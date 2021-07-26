@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proposaldevelopment;
 use Illuminate\Http\Request;
-use App\Models\Members;
 
-class MemberController extends Controller
+class ProposalDevelopmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Members::paginate(10);
-        return view('admin.members.index', compact('members'));
+        $proposaldevelopment = Proposaldevelopment::paginate(10);
+
+        return view('admin.proposaldevelopment.index', compact('proposaldevelopment'));
     }
 
     /**
@@ -25,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('admin.members.create');
+        return view('admin.proposaldevelopment.create');
     }
 
     /**
@@ -42,33 +43,33 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function show(Members $members)
+    public function show(Proposaldevelopment $proposaldevelopment)
     {
-        return view('admin.members.show', compact('members'));
+        return view('admin.proposaldevelopment.show', compact('proposaldevelopment'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Members $members)
+    public function edit(Proposaldevelopment $proposaldevelopment)
     {
-        return view('admin.members.edit', compact('members'));
+        return view('admin.proposaldevelopment.edit', compact('proposaldevelopment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Proposaldevelopment $proposaldevelopment)
     {
         //
     }
@@ -76,13 +77,11 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Members $members)
+    public function destroy(Proposaldevelopment $proposaldevelopment)
     {
-        //$members->delete();
-
-        return redirect()->route('admin.members.index');
+        //
     }
 }

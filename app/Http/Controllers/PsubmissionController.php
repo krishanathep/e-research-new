@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Psubmission;
 use Illuminate\Http\Request;
-use App\Models\Members;
 
-class MemberController extends Controller
+class PsubmissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Members::paginate(10);
-        return view('admin.members.index', compact('members'));
+        $psubmission = Psubmission::paginate(10);
+
+        return view('admin.psubmission.index', compact('psubmission'));
     }
 
     /**
@@ -25,7 +26,7 @@ class MemberController extends Controller
      */
     public function create()
     {
-        return view('admin.members.create');
+        return view('admin.psubmission.create');
     }
 
     /**
@@ -42,33 +43,33 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function show(Members $members)
+    public function show(Psubmission $psubmission)
     {
-        return view('admin.members.show', compact('members'));
+        return view('admin.psubmission.show', compact('psubmission'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function edit(Members $members)
+    public function edit(Psubmission $psubmission)
     {
-        return view('admin.members.edit', compact('members'));
+        return view('admin.psubmission.edit', compact('psubmission'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Psubmission $psubmission)
     {
         //
     }
@@ -76,13 +77,11 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Members $members)
+    public function destroy(Psubmission $psubmission)
     {
-        //$members->delete();
-
-        return redirect()->route('admin.members.index');
+        //
     }
 }

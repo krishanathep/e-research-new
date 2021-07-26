@@ -5,6 +5,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ShoppingListController;
+use App\Http\Controllers\ConcepDevelopmentController;
+use App\Http\Controllers\ProposalDevelopmentController;
+use App\Http\Controllers\PsubmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +33,9 @@ Route::resource('products', ProductController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('/admin', AdminController::class);
 Route::resource('admin-members', MemberController::class);
+Route::resource('admin-shoppinglist', ShoppingListController::class);
+Route::resource('admin-concepdevelopment', ConcepDevelopmentController::class);
+Route::resource('admin-proposaldevelopment', ProposalDevelopmentController::class);
+Route::resource('admin-psubmission', PsubmissionController::class);
 
 Auth::routes();
