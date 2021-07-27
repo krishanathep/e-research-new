@@ -22,7 +22,9 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <!--
                 <a class="btn btn-success mb-3" href="{{ route('admin-shoppinglist.create') }}"> <i class="fas fa-plus"></i> Create </a>
+                -->               
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -54,7 +56,7 @@
                           <a class="btn btn-primary" href="{{ route('admin-shoppinglist.edit',$list->id) }}"><i class="far fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger"> <i class="far fa-trash-alt"></i></button>
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="far fa-trash-alt"></i></button>
                         </form>
                       </td>
                     </tr>

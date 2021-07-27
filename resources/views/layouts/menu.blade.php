@@ -6,31 +6,31 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('admin-members.index') }}" class="nav-link {{ request()->is('admin-members') ? 'active' : '' }}">
+    <a href="{{ route('admin-members.index') }}" class="nav-link {{ request()->is('admin-members*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-users"></i>
         <p>ข้อมูลผู้ใช้</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('admin-shoppinglist.index') }}" class="nav-link {{ request()->is('admin-shoppinglist') ? 'active' : '' }}">
+    <a href="{{ route('admin-shoppinglist.index') }}" class="nav-link {{ request()->is('admin-shoppinglist*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-tags"></i>
         <p>Shopinglist</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('admin-concepdevelopment.index') }}" class="nav-link {{ request()->is('admin-concepdevelopment') ? 'active' : '' }}">
+    <a href="{{ route('admin-concepdevelopment.index') }}" class="nav-link {{ request()->is('admin-concepdevelopment*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-file-alt"></i>
         <p>Concept Development</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('admin-proposaldevelopment.index') }}" class="nav-link {{ request()->is('admin-proposaldevelopment') ? 'active' : '' }}">
+    <a href="{{ route('admin-proposaldevelopment.index') }}" class="nav-link {{ request()->is('admin-proposaldevelopment*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-file-powerpoint"></i>
         <p>Proposal Development</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="{{ route('admin-psubmission.index') }}" class="nav-link {{ request()->is('admin-psubmission') ? 'active' : '' }}">
+    <a href="{{ route('admin-psubmission.index') }}" class="nav-link {{ request()->is('admin-psubmission*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-file-powerpoint"></i>
         <p>Proposal Submission</p>
     </a>

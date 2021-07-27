@@ -8,9 +8,6 @@
                 <div class="card">
                     <div class="card-header">View Member</div>
                     <div class="card-body">
-                    <div class="float-right mb-2">
-                        <a href="{{ route('admin-members.index') }}" class='btn btn-primary'>Go Home</a>
-                    </div>
                     <table class="table table-bordered table-striped">
                         <tr>
                             <td>Email</td>
@@ -53,6 +50,9 @@
                             <td>{{ $members->updated_at }}</td>
                         </tr>
                     </table>
+                    <div class="float-right mt-2">
+                        <a href="{{ route('admin-members.index') }}" class='btn btn-secondary'><i class="far fa-arrow-alt-circle-left"></i> Go Back</a>
+                    </div>
                     </div>
                 </div>
             </div>

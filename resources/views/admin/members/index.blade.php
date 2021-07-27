@@ -22,7 +22,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <a class="btn btn-success mb-3" href="{{ route('admin-members.create') }}"> <i class="fas fa-plus"></i> Create </a>
+              <!-- <a class="btn btn-success mb-3" href="{{ route('admin-members.create') }}"> <i class="fas fa-plus"></i> Create </a> -->
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -33,6 +33,7 @@
                     <th>Last Name</th>
                     <th>Position</th>
                     <th>Phone</th>
+                    <th>Create At</th>
                     <th width='15%'>Actions</th>
                   </tr>
                   </thead>
@@ -46,13 +47,14 @@
                       <td>{{ $member->lastname }}</td>
                       <td>{{ $member->position }}</td>
                       <td>{{ $member->phone }}</td>
+                      <td>{{ $member->created_at }}</td>
                       <td>
                         <form action="{{ route('admin-members.destroy',$member->id) }}" method="POST">
                           <a class="btn btn-info" href="{{ route('admin-members.show',$member->id) }}"> <i class="far fa-eye"></i></a>
                           <a class="btn btn-primary" href="{{ route('admin-members.edit',$member->id) }}"><i class="far fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger"> <i class="far fa-trash-alt"></i></button>
+                          <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="far fa-trash-alt"></i></button>
                         </form>
                       </td>
                     </tr>
