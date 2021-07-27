@@ -14,7 +14,7 @@ class PsubmissionController extends Controller
      */
     public function index()
     {
-        $psubmission = Psubmission::paginate(10);
+        $psubmission = Psubmission::all();
 
         return view('admin.psubmission.index', compact('psubmission'));
     }

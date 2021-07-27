@@ -14,7 +14,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Members::paginate(10);
+        $members = Members::all();
         return view('admin.members.index', compact('members'));
     }
 

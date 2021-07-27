@@ -25,13 +25,13 @@
 </li>
 <li class="nav-item">
     <a href="{{ route('admin-proposaldevelopment.index') }}" class="nav-link {{ request()->is('admin-proposaldevelopment') ? 'active' : '' }}">
-    <i class="nav-icon fas fa-file-alt"></i>
+    <i class="nav-icon fas fa-file-powerpoint"></i>
         <p>Proposal Development</p>
     </a>
 </li>
 <li class="nav-item">
     <a href="{{ route('admin-psubmission.index') }}" class="nav-link {{ request()->is('admin-psubmission') ? 'active' : '' }}">
-    <i class="nav-icon fas fa-file-alt"></i>
+    <i class="nav-icon fas fa-file-powerpoint"></i>
         <p>Proposal Submission</p>
     </a>
 </li>
@@ -65,6 +65,7 @@
         <p>ตั้งค่า</p>
     </a>
 </li>
+<!--
 <li class="nav-item">
     <a href="#" class="nav-link">
         <p>โครงการที่ยื่นของบประมาณ(ระบบเก่า)</p>
@@ -100,3 +101,4 @@
         <p>รายงานความก้าวหน้า(ระบบเก่า)</p>
     </a>
 </li>
+-->

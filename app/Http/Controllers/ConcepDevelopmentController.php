@@ -14,7 +14,7 @@ class ConcepDevelopmentController extends Controller
      */
     public function index()
     {
-        $concepdevelopment = Concepdevelopment::paginate(10);
+        $concepdevelopment = Concepdevelopment::all();
 
         return view('admin.concepdevelopment.index', compact('concepdevelopment'));
     }

@@ -14,7 +14,7 @@ class ShoppingListController extends Controller
      */
     public function index()
     {
-        $shoppinglist = Shoppinglist::paginate(10);
+        $shoppinglist = Shoppinglist::all();
 
         return view('admin.shoppinglist.index', compact('shoppinglist'));
     }

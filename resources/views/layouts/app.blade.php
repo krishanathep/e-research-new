@@ -9,10 +9,14 @@
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
 
+    <!--
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    -->
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
 
     @yield('third_party_stylesheets')
-
 
     @stack('page_css')
 </head>
@@ -82,7 +86,18 @@
     </footer>
 </div>
 
+<!--
 <script src="{{ mix('js/app.js') }}" defer></script>
+-->
+
+<!-- jQuery -->
+<script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('backend/dist/js/demo.js') }}"></script>
 
 @yield('third_party_scripts')
 
@@ -91,3 +106,4 @@
 </script>
 </body>
 </html>
+6+

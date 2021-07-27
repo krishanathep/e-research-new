@@ -13,10 +13,6 @@
                     </div>
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td>ID</td>
-                            <td>{{ $members->id }}</td>
-                        </tr>
-                        <tr>
                             <td>Email</td>
                             <td>{{ $members->email }}</td>
                         </tr>

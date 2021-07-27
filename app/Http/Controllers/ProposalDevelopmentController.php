@@ -14,7 +14,7 @@ class ProposalDevelopmentController extends Controller
      */
     public function index()
     {
-        $proposaldevelopment = Proposaldevelopment::paginate(10);
+        $proposaldevelopment = Proposaldevelopment::all();
 
         return view('admin.proposaldevelopment.index', compact('proposaldevelopment'));
     }
