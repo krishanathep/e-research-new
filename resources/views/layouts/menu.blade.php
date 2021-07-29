@@ -36,31 +36,31 @@
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{ route('admin-progress.index') }}" class="nav-link {{ request()->is('admin-progress') ? 'active' : '' }}">
     <i class="nav-icon fas fa-chart-line"></i>
-        <p>ความก้าวหน้าโครงการวิจัย</p>
+        <p>ความก้าวหน้าโครงการ</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{ route('admin-report.index') }}" class="nav-link {{ request()->is('admin-report*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-chart-area"></i>
         <p>Report</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{ route('admin-progressreport.index') }}" class="nav-link {{ request()->is('admin-progressreport*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-chart-bar"></i>
         <p>รายงานความก้าวหน้า</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{ route('admin-general.index') }}" class="nav-link {{ request()->is('admin-general*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-database"></i>
         <p>ข้อมูลทั่วไป</p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="{{ route('admin-settings.index') }}" class="nav-link {{ request()->is('admin-settings*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-cog"></i>
         <p>ตั้งค่า</p>
     </a>

@@ -9,6 +9,11 @@ use App\Http\Controllers\ShoppingListController;
 use App\Http\Controllers\ConcepDevelopmentController;
 use App\Http\Controllers\ProposalDevelopmentController;
 use App\Http\Controllers\PsubmissionController;
+use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ProgressReportController;
+use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,5 +42,10 @@ Route::resource('admin-shoppinglist', ShoppingListController::class);
 Route::resource('admin-concepdevelopment', ConcepDevelopmentController::class);
 Route::resource('admin-proposaldevelopment', ProposalDevelopmentController::class);
 Route::resource('admin-psubmission', PsubmissionController::class);
+Route::resource('admin-progress', ProgressController::class);
+Route::resource('admin-report', ReportController::class);
+Route::resource('admin-progressreport', ProgressReportController::class);
+Route::resource('admin-general', GeneralController::class);
+Route::resource('admin-settings', SettingsController::class);
 
 Auth::routes();
