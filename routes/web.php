@@ -15,6 +15,9 @@ use App\Http\Controllers\ProgressReportController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\SettingsController;
 
+use App\Http\Controllers\old\ProjectBController;
+use App\Http\Controllers\old\ProjectAController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,5 +50,9 @@ Route::resource('admin-report', ReportController::class);
 Route::resource('admin-progressreport', ProgressReportController::class);
 Route::resource('admin-general', GeneralController::class);
 Route::resource('admin-settings', SettingsController::class);
+
+Route::resource('admin-old-projectbudget', ProjectBController::class);
+Route::resource('admin-old-projectapprove', ProjectAController::class);
+
 
 Auth::routes();

@@ -65,6 +65,54 @@
         <p>ตั้งค่า</p>
     </a>
 </li>
+<li class="nav-item">
+            <a href="#" class="nav-link {{ request()->is('admin-old*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Old Projects
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('admin-old-projectbudget.index') }}" class="nav-link {{ request()->is('admin-old-projectbudget*') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>โครงการที่ยื่นของบประมาณ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+              <a href="{{ route('admin-old-projectapprove.index') }}" class="nav-link {{ request()->is('admin-old-projectapprove*') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>โครงการที่ยื่นขออนุมัติดำเนินการ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/boxed.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ความก้าวหน้าของโครงการวิจัย</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>รายงานโครงการที่ยื่นของบประมาณ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>รายงานโครงการที่ยื่นขออนุมัติดำเนินการ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>รายงานความก้าวหน้า</p>
+                </a>
+              </li>
+            </ul>
+          </li>
 <!--
 <li class="nav-item">
     <a href="#" class="nav-link">
