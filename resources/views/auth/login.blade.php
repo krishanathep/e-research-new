@@ -31,11 +31,11 @@
                 @csrf
 
                 <div class="input-group mb-3">
-                    <input type="email"
-                           name="email"
-                           value="{{ old('email') }}"
+                    <input type="text"
+                           name="username"
+                           value="{{ old('username') }}"
                            placeholder="Email"
-                           class="form-control @error('email') is-invalid @enderror">
+                           class="form-control @error('username') is-invalid @enderror">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                     </div>

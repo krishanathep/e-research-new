@@ -39,20 +39,24 @@ Route::resource('products', ProductController::class);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/admin', AdminController::class);
-Route::resource('admin-members', MemberController::class);
-Route::resource('admin-shoppinglist', ShoppingListController::class);
-Route::resource('admin-concepdevelopment', ConcepDevelopmentController::class);
-Route::resource('admin-proposaldevelopment', ProposalDevelopmentController::class);
-Route::resource('admin-psubmission', PsubmissionController::class);
-Route::resource('admin-progress', ProgressController::class);
-Route::resource('admin-report', ReportController::class);
-Route::resource('admin-progressreport', ProgressReportController::class);
-Route::resource('admin-general', GeneralController::class);
-Route::resource('admin-settings', SettingsController::class);
+Route::middleware(['auth'])->group(function(){
+    Route::resource('/admin', AdminController::class);
+    Route::resource('admin-members', MemberController::class);
+    Route::resource('admin-shoppinglist', ShoppingListController::class);
+    Route::resource('admin-concepdevelopment', ConcepDevelopmentController::class);
+    Route::resource('admin-proposaldevelopment', ProposalDevelopmentController::class);
+    Route::resource('admin-psubmission', PsubmissionController::class);
+    Route::resource('admin-progress', ProgressController::class);
+    Route::resource('admin-report', ReportController::class);
+    Route::resource('admin-progressreport', ProgressReportController::class);
+    Route::resource('admin-general', GeneralController::class);
+    Route::resource('admin-settings', SettingsController::class);
+    
+    Route::resource('admin-old-projectbudget', ProjectBController::class);
+    Route::resource('admin-old-projectapprove', ProjectAController::class);
 
-Route::resource('admin-old-projectbudget', ProjectBController::class);
-Route::resource('admin-old-projectapprove', ProjectAController::class);
+});
+
 
 
 Auth::routes();
