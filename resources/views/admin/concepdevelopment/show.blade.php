@@ -10,35 +10,39 @@
                     <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td>Code</td>
-                            <td></td>
+                            <td>CD id</td>
+                            <td>{{ $concepdevelopment->concept_dev_id }}</td>
                         </tr>
                         <tr>
-                            <td>Project name</td>
-                            <td></td>
+                            <td>SL id</td>
+                            <td>{{ $concepdevelopment->shopping_list_id }}</td>
                         </tr>
                         <tr>
-                            <td>Research</td>
-                            <td></td>
+                            <td>Name</td>
+                            <td>{{ $concepdevelopment->concept_dev_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Detail</td>
+                            <td>{{ $concepdevelopment->concept_dev_details }}</td>
                         </tr>
                         <tr>
                             <td>Type</td>
-                            <td></td>
+                            <td>{{ $concepdevelopment->concept_dev_type }}</td>
                         </tr>
                         <tr>
-                            <td>Head</td>
-                            <td></td>
+                            <td>CR Type</td>
+                            <td>{{ $concepdevelopment->concept_ResearchType_id }}</td>
                         </tr>
                         <tr>
-                            <td>Budget</td>
-                            <td></td>
+                            <td>Status</td>
+                            <td>{{ $concepdevelopment->concept_dve_status }}</td>
                         </tr>
-                        <tr>
-                            <td>Period</td>
-                            <td></td>
+                            <td>Create at</td>
+                            <td>{{ $concepdevelopment->created_at }}</td>
                         </tr>
-                            <td>Create date</td>
-                            <td></td>
+                        </tr>
+                            <td>Update at</td>
+                            <td>{{ $concepdevelopment->updated_at }}</td>
                         </tr>
                     </table>
                     <div class="float-right mt-2">

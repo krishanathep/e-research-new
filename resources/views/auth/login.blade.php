@@ -11,8 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
           integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
           crossorigin="anonymous"/>
-
+    <!--
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="{{ asset('backend/dist/css/adminlte.min.css') }}">
 
 </head>
 <body class="hold-transition login-page">
@@ -39,7 +41,7 @@
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                     </div>
-                    @error('email')
+                    @error('username')
                     <span class="error invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
@@ -74,9 +76,11 @@
 
                 </div>
             </form>
+            <!--
             <p class="mb-1">
                 <a href="{{ route('password.request') }}">I forgot my password</a>
             </p>
+            -->
             <p class="mb-0">
                 <a href="{{ route('register') }}" class="text-center">Register a new membership</a>
             </p>
@@ -86,8 +90,18 @@
 
 </div>
 <!-- /.login-box -->
-
+<!--
 <script src="{{ mix('js/app.js') }}" defer></script>
+-->
+
+<!-- jQuery -->
+<script src="{{ asset('backend/plugins/jquery/jquery.min.js') }}"></script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('backend/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- AdminLTE App -->
+<script src="{{ asset('backend/dist/js/adminlte.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{ asset('backend/dist/js/demo.js') }}"></script>
 
 </body>
 </html>

@@ -30,9 +30,9 @@
 
                 <div class="input-group mb-3">
                     <input type="text"
-                           name="name"
-                           class="form-control @error('name') is-invalid @enderror"
-                           value="{{ old('name') }}"
+                           name="admin_name"
+                           class="form-control @error('admin_name') is-invalid @enderror"
+                           value="{{ old('admin_name') }}"
                            placeholder="Full name">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-user"></span></div>
@@ -45,15 +45,15 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="email"
-                           name="email"
-                           value="{{ old('email') }}"
-                           class="form-control @error('email') is-invalid @enderror"
-                           placeholder="Email">
+                    <input type="text"
+                           name="username"
+                           value="{{ old('username') }}"
+                           class="form-control @error('username') is-invalid @enderror"
+                           placeholder="Username">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                     </div>
-                    @error('email')
+                    @error('username')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

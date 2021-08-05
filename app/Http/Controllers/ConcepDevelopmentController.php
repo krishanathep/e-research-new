@@ -37,7 +37,19 @@ class ConcepDevelopmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'shopping_list_id' => 'required',
+            'concept_dev_name' => 'required',
+            'concept_dev_details' => 'required',
+            'concept_dev_type' => 'required',
+            'concept_ResearchType_id' => 'required',
+            'concept_dev_status' => 'required',
+        ]);
+
+        Concepdevelopment::create($request->all());
+
+        return redirect()->route('admin-concepdevelopment.index')
+            ->with('success','Post created successfully');
     }
 
     /**
@@ -46,8 +58,9 @@ class ConcepDevelopmentController extends Controller
      * @param  \App\Models\Concepdevelopment  $concepdevelopment
      * @return \Illuminate\Http\Response
      */
-    public function show(Concepdevelopment $concepdevelopment)
+    public function show($id)
     {
+        $concepdevelopment = Concepdevelopment::findOrFail($id);
         return view('admin.concepdevelopment.show', compact('concepdevelopment'));
     }
 
@@ -57,8 +70,9 @@ class ConcepDevelopmentController extends Controller
      * @param  \App\Models\Concepdevelopment  $concepdevelopment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Concepdevelopment $concepdevelopment)
+    public function edit($id)
     {
+        $concepdevelopment = Concepdevelopment::findOrFail($id);
         return view('admin.concepdevelopment.edit', compact('concepdevelopment'));
     }
 
@@ -69,9 +83,20 @@ class ConcepDevelopmentController extends Controller
      * @param  \App\Models\Concepdevelopment  $concepdevelopment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Concepdevelopment $concepdevelopment)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'shopping_list_id' => 'required',
+            'concept_dev_name' => 'required',
+            'concept_dev_details' => 'required',
+            'concept_dev_type' => 'required',
+            'concept_ResearchType_id' => 'required',
+            'concept_dev_status' => 'required',
+        ]);
+
+        Concepdevelopment::findOrFail($id)->update($request->all());
+        return redirect()->route('admin-concepdevelopment.index')
+            ->with('success','Concept Development Updated successfully');
     }
 
     /**
@@ -80,8 +105,10 @@ class ConcepDevelopmentController extends Controller
      * @param  \App\Models\Concepdevelopment  $concepdevelopment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Concepdevelopment $concepdevelopment)
+    public function destroy($id)
     {
-        //
+        Concepdevelopment::findOrFail($id)->delete();
+        return redirect()->route('admin-concepdevelopment.index')
+            ->with('success','Concept Development Deleted successfully');
     }
 }

@@ -37,7 +37,19 @@ class ProposalDevelopmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'concept_dev_id' => 'required',
+            'proposal_dev_name' => 'required',
+            'proposal_dev_details' => 'required',
+            'proposal_ResearchType_id' => 'required',
+            'proposal_dev_type' => 'required',
+            'proposal_dev_status' => 'required',
+        ]);
+
+        Proposaldevelopment::create($request->all());
+
+        return redirect()->route('admin-proposaldevelopment.index')
+            ->with('success','Proposal developmemt created successfully');
     }
 
     /**
@@ -46,8 +58,9 @@ class ProposalDevelopmentController extends Controller
      * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function show(Proposaldevelopment $proposaldevelopment)
+    public function show($id)
     {
+        $proposaldevelopment = Proposaldevelopment::findOrFail($id);
         return view('admin.proposaldevelopment.show', compact('proposaldevelopment'));
     }
 
@@ -57,8 +70,9 @@ class ProposalDevelopmentController extends Controller
      * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proposaldevelopment $proposaldevelopment)
+    public function edit($id)
     {
+        $proposaldevelopment = Proposaldevelopment::findOrFail($id);
         return view('admin.proposaldevelopment.edit', compact('proposaldevelopment'));
     }
 
@@ -69,9 +83,20 @@ class ProposalDevelopmentController extends Controller
      * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proposaldevelopment $proposaldevelopment)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'concept_dev_id' => 'required',
+            'proposal_dev_name' => 'required',
+            'proposal_dev_details' => 'required',
+            'proposal_ResearchType_id' => 'required',
+            'proposal_dev_type' => 'required',
+            'proposal_dev_status' => 'required',
+        ]);
+
+        Proposaldevelopment::findOrFail($id)->update($request->all());
+        return redirect()->route('admin-proposaldevelopment.index')
+            ->with('success','Proposal developmemt updated successfully');
     }
 
     /**
@@ -80,8 +105,10 @@ class ProposalDevelopmentController extends Controller
      * @param  \App\Models\Proposaldevelopment  $proposaldevelopment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proposaldevelopment $proposaldevelopment)
+    public function destroy($id)
     {
-        //
+        Proposaldevelopment::findOrFail($id)->delete();
+        return redirect()->route('admin-proposaldevelopment.index')
+            ->with('success','Proposal development deleted successfully');
     }
 }

@@ -24,7 +24,7 @@
     </div>
 @endif
 
-<form action="{{route ('products.update', $product->id) }}" method='POST'>
+<form action="{{route ('products.update', $product->concept_dev_id) }}" method='POST'>
     @csrf 
     @method('PUT')
     <div class="row">

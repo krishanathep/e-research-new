@@ -11,7 +11,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="text-black-50">Proposal Development</h1>
+                <div class="float-left">
+                  <h1 class="text-black-50">Proposal Development</h1>
+                </div>
+                <div class="float-right">
+                  <a class="btn btn-success mt-2" href="{{ route('admin-proposaldevelopment.create') }}"> <i class="fas fa-plus"></i> Create </a>
+                </div>
             </div>
             <div class="col-lg-12">
                 <!-- /.card -->
@@ -21,39 +26,38 @@
                 <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <!--
-                <a class="btn btn-success mb-3" href="{{ route('admin-proposaldevelopment.create') }}"> <i class="fas fa-plus"></i> Create </a>
-                -->
+              <div class="card-body">        
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Code</th>
-                    <th>Project Name</th>
-                    <th>Research</th>
+                    <th>ID</th>
+                    <th>Cd id</th>
+                    <th>Name</th>
+                    <th>Detail</th>
+                    <th>Pr type</th>
                     <th>Type</th>
-                    <th>Head</th>
-                    <th>Budget</th>
-                    <th>Period</th>
+                    <th>Status</th>
+                    <th>Create at</th>
+                    <th>Update at</th>
                     <th width='15%'>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($proposaldevelopment as $item)
                     <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->project_code }}</td>
-                        <td>{{ $item->project_name_th }}</td>
-                        <td>{{ $item->research_project }}</td>
-                        <td>{{ $item->research_type }}</td>
-                        <td>{{ $item->header_firstname }}</td>
-                        <td>{{ $item->project_budget }}</td>
-                        <td>{{ $item->project_year }} year</td>
+                        <td>{{ $item->proposal_dev_id }}</td>
+                        <td>{{ $item->concept_dev_id }}</td>
+                        <td>{{ $item->proposal_dev_name }}</td>
+                        <td>{{ $item->proposal_dev_details }}</td>
+                        <td>{{ $item->proposal_ResearchType_id }}</td>
+                        <td>{{ $item->proposal_dev_type }}</td>
+                        <td>{{ $item->proposal_dev_status }}</td>
+                        <td>{{ $item->created_at }}</td>
+                        <td>{{ $item->updated_at }}</td>
                       <td>
-                        <form action="{{ route('admin-proposaldevelopment.destroy',$item->id) }}" method="POST">
-                          <a class="btn btn-info" href="{{ route('admin-proposaldevelopment.show',$item->id) }}"> <i class="far fa-eye"></i></a>
-                          <a class="btn btn-primary" href="{{ route('admin-proposaldevelopment.edit',$item->id) }}"><i class="far fa-edit"></i></a>
+                        <form action="{{ route('admin-proposaldevelopment.destroy',$item->proposal_dev_id) }}" method="POST">
+                          <a class="btn btn-info" href="{{ route('admin-proposaldevelopment.show',$item->proposal_dev_id) }}"> <i class="far fa-eye"></i></a>
+                          <a class="btn btn-primary" href="{{ route('admin-proposaldevelopment.edit',$item->proposal_dev_id) }}"><i class="far fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="far fa-trash-alt"></i></button>
@@ -92,7 +96,7 @@
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["excel"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
