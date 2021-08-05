@@ -28,32 +28,28 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Code</th>
-                    <th>Project Name</th>
-                    <th>Research</th>
-                    <th>Type</th>
-                    <th>Head</th>
-                    <th>Budget</th>
-                    <th>Period</th>
+                    <th>ID</th>
+                    <th>Category</th>
+                    <th>Branch</th>
+                    <th>User</th>
+                    <th>Cratet at</th>
+                    <th>Update at</th>
                     <th width='15%'>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($shoppinglist as $list)
                     <tr>
-                        <td>{{ $list->id }}</td>
-                        <td>{{ $list->project_code }}</td>
-                        <td>{{ $list->project_name_th }}</td>
-                        <td>{{ $list->research_project }}</td>
-                        <td>{{ $list->research_type }}</td>
-                        <td>{{ $list->header_firstname }}</td>
-                        <td>{{ $list->project_budget }}</td>
-                        <td>{{ $list->project_year }} year</td>
+                        <td>{{ $list->shopping_list_id }}</td>
+                        <td>{{ $list->category_id }}</td>
+                        <td>{{ $list->category_branch_id }}</td>
+                        <td>{{ $list->user_id }}</td>
+                        <td>{{ $list->created_at }}</td>
+                        <td>{{ $list->updated_at }}</td>
                       <td>
-                        <form action="{{ route('admin-shoppinglist.destroy',$list->id) }}" method="POST">
-                          <a class="btn btn-info" href="{{ route('admin-shoppinglist.show',$list->id) }}"> <i class="far fa-eye"></i></a>
-                          <a class="btn btn-primary" href="{{ route('admin-shoppinglist.edit',$list->id) }}"><i class="far fa-edit"></i></a>
+                        <form action="{{ route('admin-shoppinglist.destroy',$list->shopping_list_id) }}" method="POST">
+                          <a class="btn btn-info" href="{{ route('admin-shoppinglist.show',$list->shopping_list_id) }}"> <i class="far fa-eye"></i></a>
+                          <a class="btn btn-primary" href="{{ route('admin-shoppinglist.edit',$list->shopping_list_id) }}"><i class="far fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="far fa-trash-alt"></i></button>

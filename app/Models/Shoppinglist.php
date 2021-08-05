@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shoppinglist extends Model
 {
-    protected $table = 'ers_projects';
+    protected $table = 'shopping_list';
+
+    protected $primaryKey = 'shopping_list_id';
+
+    protected $fillable = [
+        //
+    ];
 }

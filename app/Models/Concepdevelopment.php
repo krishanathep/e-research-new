@@ -16,7 +16,7 @@ class Concepdevelopment extends Model
         'concept_dev_name',
         'concept_dev_details',
         'concept_dev_type',
-        'concept_ResearchType_id',
+        'research_type_id',
         'concept_dev_status',
     ];
 

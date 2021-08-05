@@ -14,8 +14,12 @@
                                 <td>{{ $proposaldevelopment->proposal_dev_id }}</td>
                             </tr>
                             <tr>
-                                <td>Cd id</td>
-                                <td>{{ $proposaldevelopment->concept_dev_id }}</td>
+                                <td>Approved</td>
+                                <td>{{ $proposaldevelopment->concept_approve_id }}</td>
+                            </tr>
+                            <tr>
+                                <td>Shoppinglist</td>
+                                <td>{{ $proposaldevelopment->shopping_id }}</td>
                             </tr>
                             <tr>
                                 <td>Name</td>
@@ -26,8 +30,8 @@
                                 <td>{{ $proposaldevelopment->proposal_dev_details }}</td>
                             </tr>
                             <tr>
-                                <td>Pr type</td>
-                                <td>{{ $proposaldevelopment->proposal_ResearchType_id }}</td>
+                                <td>Re type</td>
+                                <td>{{ $proposaldevelopment->research_type_id }}</td>
                             </tr>
                             <tr>
                                 <td>Type</td>

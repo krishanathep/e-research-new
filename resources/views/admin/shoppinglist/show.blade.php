@@ -10,35 +10,28 @@
                     <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td>Code</td>
-                            <td></td>
+                            <td>ID</td>
+                            <td>{{ $shoppinglist->shopping_list_id }}</td>
                         </tr>
                         <tr>
-                            <td>Project name</td>
-                            <td></td>
+                            <td>Category</td>
+                            <td>{{ $shoppinglist->category_id }}</td>
                         </tr>
                         <tr>
-                            <td>Research</td>
-                            <td></td>
+                            <td>Branch</td>
+                            <td>{{ $shoppinglist->category_branch_id }}</td>
                         </tr>
                         <tr>
-                            <td>Type</td>
-                            <td></td>
+                            <td>User</td>
+                            <td>{{ $shoppinglist->user_id }}</td>
                         </tr>
                         <tr>
-                            <td>Head</td>
-                            <td></td>
+                            <td>Create at</td>
+                            <td>{{ $shoppinglist->created_at }}</td>
                         </tr>
                         <tr>
-                            <td>Budget</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>Period</td>
-                            <td></td>
-                        </tr>
-                            <td>Create date</td>
-                            <td></td>
+                            <td>Update at</td>
+                            <td>{{ $shoppinglist->updated_at }}</td>
                         </tr>
                     </table>
                     <div class="float-right mt-2">

@@ -12,10 +12,11 @@ class Proposaldevelopment extends Model
     protected $primaryKey = 'proposal_dev_id';
 
     protected $fillable = [
-        'concept_dev_id',
+        'concept_approve_id',
+        'shopping_id',
         'proposal_dev_name',
         'proposal_dev_details',
-        'proposal_ResearchType_id',
+        'research_type_id',
         'proposal_dev_type',
         'proposal_dev_status',
     ];

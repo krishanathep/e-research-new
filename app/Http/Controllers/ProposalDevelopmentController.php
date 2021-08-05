@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Proposaldevelopment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class ProposalDevelopmentController extends Controller
 {
@@ -37,11 +38,16 @@ class ProposalDevelopmentController extends Controller
      */
     public function store(Request $request)
     {
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+
         $this->validate($request, [
-            'concept_dev_id' => 'required',
+           
+            'concept_approve_id' => 'required',
+            'shopping_id' => 'required',
             'proposal_dev_name' => 'required',
             'proposal_dev_details' => 'required',
-            'proposal_ResearchType_id' => 'required',
+            'research_type_id' => 'required',
             'proposal_dev_type' => 'required',
             'proposal_dev_status' => 'required',
         ]);
@@ -85,11 +91,16 @@ class ProposalDevelopmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+
         $this->validate($request, [
-            'concept_dev_id' => 'required',
+            
+            'concept_approve_id' => 'required',
+            'shopping_id' => 'required',
             'proposal_dev_name' => 'required',
             'proposal_dev_details' => 'required',
-            'proposal_ResearchType_id' => 'required',
+            'research_type_id' => 'required',
             'proposal_dev_type' => 'required',
             'proposal_dev_status' => 'required',
         ]);

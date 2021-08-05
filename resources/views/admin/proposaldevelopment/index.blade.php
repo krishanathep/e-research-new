@@ -31,10 +31,11 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Cd id</th>
+                    <th>Approved</th>
+                    <th>Shopping list</th>
                     <th>Name</th>
                     <th>Detail</th>
-                    <th>Pr type</th>
+                    <th>Re Type</th>
                     <th>Type</th>
                     <th>Status</th>
                     <th>Create at</th>
@@ -46,10 +47,11 @@
                     @foreach ($proposaldevelopment as $item)
                     <tr>
                         <td>{{ $item->proposal_dev_id }}</td>
-                        <td>{{ $item->concept_dev_id }}</td>
+                        <td>{{ $item->concept_approve_id }}</td>
+                        <td>{{ $item->shopping_id }}</td>
                         <td>{{ $item->proposal_dev_name }}</td>
                         <td>{{ $item->proposal_dev_details }}</td>
-                        <td>{{ $item->proposal_ResearchType_id }}</td>
+                        <td>{{ $item->research_type_id }}</td>
                         <td>{{ $item->proposal_dev_type }}</td>
                         <td>{{ $item->proposal_dev_status }}</td>
                         <td>{{ $item->created_at }}</td>

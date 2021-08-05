@@ -48,15 +48,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Type : </strong>
-                                        <input type="text" name='concept_dev_type' class="form-control" value="{{ $concepdevelopment->concept_dev_type }}"
+                                        <input type="text" name='research_type_id' class="form-control" value="{{ $concepdevelopment->research_type_id }}"
                                             placeholder='Enter type...'>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>CR type : </strong>
-                                        <input type="text" name='concept_ResearchType_id' class="form-control" value="{{ $concepdevelopment->concept_ResearchType_id }}"
-                                            placeholder='Enter cr type...'>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">

@@ -36,7 +36,6 @@
                     <th>Name</th>
                     <th>Detail</th>
                     <th>Type</th>
-                    <th>CR Type</th>
                     <th>Status</th>
                     <th>Create At</th>
                     <th>Update At</th>
@@ -50,13 +49,12 @@
                         <td>{{ $list->shopping_list_id }}</td>
                         <td>{{ $list->concept_dev_name }}</td>
                         <td>{{ $list->concept_dev_details }}</td>
-                        <td>{{ $list->concept_dev_type }}</td>
-                        <td>{{ $list->concept_ResearchType_id }}</td>
+                        <td>{{ $list->research_type_id }}</td>
                         <td>{{ $list->concept_dev_status }}</td>
                         <td>{{ $list->created_at }}</td>
                         <td>{{ $list->updated_at }}</td>
                       <td>
-                        <form action="{{ route('admin-concepdevelopment.destroy',$list->concept_dev_id) }}" method="POST">
+                        <form action="{{ route('admin-concepdevelopment.show',$list->concept_dev_id) }}"" method="POST">
                           <a class="btn btn-info" href="{{ route('admin-concepdevelopment.show',$list->concept_dev_id) }}"> <i class="far fa-eye"></i></a>
                           <a class="btn btn-primary" href="{{ route('admin-concepdevelopment.edit',$list->concept_dev_id) }}"><i class="far fa-edit"></i></a>
                           @csrf

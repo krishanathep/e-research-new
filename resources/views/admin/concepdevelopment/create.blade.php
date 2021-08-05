@@ -46,15 +46,8 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Type : </strong>
-                                        <input type="text" name='concept_dev_type' class="form-control"
-                                            placeholder='Enter type...'>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
                                         <strong>CR type : </strong>
-                                        <input type="text" name='concept_ResearchType_id' class="form-control"
+                                        <input type="text" name='research_type_id' class="form-control"
                                             placeholder='Enter cr type...'>
                                     </div>
                                 </div>

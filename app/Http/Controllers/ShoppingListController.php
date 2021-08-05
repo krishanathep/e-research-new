@@ -46,8 +46,9 @@ class ShoppingListController extends Controller
      * @param  \App\Models\Shoppinglist  $shoppinglist
      * @return \Illuminate\Http\Response
      */
-    public function show(Shoppinglist $shoppinglist)
+    public function show($id)
     {
+        $shoppinglist = Shoppinglist::findOrFail($id);
         return view('admin.shoppinglist.show', compact('shoppinglist'));
     }
 

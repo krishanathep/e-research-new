@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Concepdevelopment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class ConcepDevelopmentController extends Controller
 {
@@ -37,12 +38,14 @@ class ConcepDevelopmentController extends Controller
      */
     public function store(Request $request)
     {
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+
         $this->validate($request, [
             'shopping_list_id' => 'required',
             'concept_dev_name' => 'required',
             'concept_dev_details' => 'required',
-            'concept_dev_type' => 'required',
-            'concept_ResearchType_id' => 'required',
+            'research_type_id' => 'required',
             'concept_dev_status' => 'required',
         ]);
 
@@ -85,12 +88,15 @@ class ConcepDevelopmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+        
         $this->validate($request, [
             'shopping_list_id' => 'required',
             'concept_dev_name' => 'required',
             'concept_dev_details' => 'required',
-            'concept_dev_type' => 'required',
-            'concept_ResearchType_id' => 'required',
+            'research_type_id' => 'required',
             'concept_dev_status' => 'required',
         ]);
 

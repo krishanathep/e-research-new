@@ -26,8 +26,15 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>SL id : </strong>
-                                        <input type="text" name='concept_dev_id' class="form-control" value="{{ $proposaldevelopment->concept_dev_id }}" 
+                                        <strong>Approved : </strong>
+                                        <input type="text" name='concept_approve_id' class="form-control" value="{{ $proposaldevelopment->shopping_id }}" 
+                                            placeholder='Enter sl id...'>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Shoppinglist : </strong>
+                                        <input type="text" name='shopping_id' class="form-control" value="{{ $proposaldevelopment->concept_approve_id }}" 
                                             placeholder='Enter sl id...'>
                                     </div>
                                 </div>
@@ -47,8 +54,8 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>PR type : </strong>
-                                        <input type="text" name='proposal_ResearchType_id' class="form-control" value="{{ $proposaldevelopment->proposal_ResearchType_id }}"
+                                        <strong>Re type : </strong>
+                                        <input type="text" name='research_type_id' class="form-control" value="{{ $proposaldevelopment->research_type_id }}"
                                             placeholder='Enter type...'>
                                     </div>
                                 </div>

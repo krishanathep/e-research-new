@@ -25,8 +25,15 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>SL id : </strong>
-                                        <input type="text" name='concept_dev_id' class="form-control"
+                                        <strong>Approved : </strong>
+                                        <input type="text" name='concept_approve_id' class="form-control"
+                                            placeholder='Enter sl id...'>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Shoppinglist : </strong>
+                                        <input type="text" name='shopping_id' class="form-control"
                                             placeholder='Enter sl id...'>
                                     </div>
                                 </div>
@@ -46,8 +53,8 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>PR type : </strong>
-                                        <input type="text" name='proposal_ResearchType_id' class="form-control"
+                                        <strong>Re type : </strong>
+                                        <input type="text" name='research_type_id' class="form-control"
                                             placeholder='Enter type...'>
                                     </div>
                                 </div>
