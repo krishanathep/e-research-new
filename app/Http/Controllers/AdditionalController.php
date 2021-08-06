@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Shoppinglist;
 use Illuminate\Http\Request;
+use App\Models\Additional;
 use Illuminate\Support\Facades\Schema;
 
-class ShoppingListController extends Controller
+class AdditionalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class ShoppingListController extends Controller
      */
     public function index()
     {
-        $shoppinglist = Shoppinglist::all();
-
-        return view('admin.shoppinglist.group.index', compact('shoppinglist'));
+        $additional = Additional::all();
+        return view('admin.shoppinglist.additional.index', compact('additional'));
     }
 
     /**
@@ -27,7 +26,7 @@ class ShoppingListController extends Controller
      */
     public function create()
     {
-        return view('admin.shoppinglist.group.create');
+        return view('admin.shoppinglist.additional.create');
     }
 
     /**
@@ -42,46 +41,48 @@ class ShoppingListController extends Controller
         Schema::disableForeignKeyConstraints();
 
         $this->validate($request, [
-            'category_id' => 'required',
-            'category_branch_id' => 'required',
             'user_id' => 'required',
+            'shopping_category_id' => 'required',
+            'shopping_add_name' => 'required',
+            'shopping_add_details' => 'required',
+            'shopping_list_status' => 'required',
         ]);
 
-        Shoppinglist::create($request->all());
+        Additional::create($request->all());
 
-        return redirect()->route('admin-shoppinglist.index')
-            ->with('success','Shoppoinglist created successfully');
+        return redirect()->route('admin-shoppinglist-additional.index')
+            ->with('success','Additional created successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Shoppinglist  $shoppinglist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $shoppinglist = Shoppinglist::findOrFail($id);
-        return view('admin.shoppinglist.group.show', compact('shoppinglist'));
+        $additional = Additional::findOrFail($id);
+        return view('admin.shoppinglist.additional.show', compact('additional'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Shoppinglist  $shoppinglist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $shoppinglist = Shoppinglist::findOrFail($id);
-        return view('admin.shoppinglist.group.edit', compact('shoppinglist'));
+        $additional = Additional::findOrFail($id);
+        return view('admin.shoppinglist.additional.edit', compact('additional'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Shoppinglist  $shoppinglist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -90,28 +91,30 @@ class ShoppingListController extends Controller
         Schema::disableForeignKeyConstraints();
 
         $this->validate($request, [
-            'category_id' => 'required',
-            'category_branch_id' => 'required',
             'user_id' => 'required',
+            'shopping_category_id' => 'required',
+            'shopping_add_name' => 'required',
+            'shopping_add_details' => 'required',
+            'shopping_list_status' => 'required',
         ]);
 
-        Shoppinglist::findOrFail($id)->update($request->all());
+        Additional::findOrFail($id)->update($request->all());
 
-        return redirect()->route('admin-shoppinglist.index')
-            ->with('success','Shoppoinglist updated successfully');
+        return redirect()->route('admin-shoppinglist-additional.index')
+            ->with('success','Additional updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Shoppinglist  $shoppinglist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Shoppinglist::findOrFail($id)->delete();
+        Additional::findOrFail($id)->delete();
 
-        return redirect()->route('admin-shoppinglist.index')
-            ->with('success','Shoppinglist Deleted successfully');
+        return redirect()->route('admin-shoppinglist-additional.index')
+            ->with('success','Additional Deleted successfully');
     }
 }

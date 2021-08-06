@@ -12,6 +12,8 @@ class Shoppinglist extends Model
     protected $primaryKey = 'shopping_list_id';
 
     protected $fillable = [
-        //
+        'category_id',
+        'category_branch_id',
+        'user_id',
     ];
 }

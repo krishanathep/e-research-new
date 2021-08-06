@@ -11,7 +11,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="text-black-50">Shoppinglist</h1>
+                <div class="float-left">
+                  <h1 class="text-black-50">Shoppinglist Addtional</h1>
+                </div>
+                <div class="float-right">
+                  <a class="btn btn-success mt-2" href="{{ route('admin-shoppinglist-additional.create') }}"> <i class="fas fa-plus"></i> Create </a>
+                </div>
             </div>
             <div class="col-lg-12">
                 <!-- /.card -->
@@ -21,35 +26,36 @@
                 <h3 class="card-title">DataTable with default features</h3>
               </div>
               <!-- /.card-header -->
-              <div class="card-body">
-                <!--
-                <a class="btn btn-success mb-3" href="{{ route('admin-shoppinglist.create') }}"> <i class="fas fa-plus"></i> Create </a>
-                -->               
+              <div class="card-body">           
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Category</th>
-                    <th>Branch</th>
                     <th>User</th>
+                    <th>Category</th>
+                    <th>Category Add Name</th>
+                    <th>Category Add Detail</th>
+                    <th>Category Add Status</th>
                     <th>Cratet at</th>
                     <th>Update at</th>
                     <th width='15%'>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($shoppinglist as $list)
+                    @foreach ($additional as $list)
                     <tr>
-                        <td>{{ $list->shopping_list_id }}</td>
-                        <td>{{ $list->category_id }}</td>
-                        <td>{{ $list->category_branch_id }}</td>
+                        <td>{{ $list->shopping_add_id }}</td>
                         <td>{{ $list->user_id }}</td>
+                        <td>{{ $list->shopping_category_id }}</td>
+                        <td>{{ $list->shopping_add_name }}</td>
+                        <td>{{ $list->shopping_add_details }}</td>
+                        <td>{{ $list->shopping_list_status }}</td>
                         <td>{{ $list->created_at }}</td>
                         <td>{{ $list->updated_at }}</td>
                       <td>
-                        <form action="{{ route('admin-shoppinglist.destroy',$list->shopping_list_id) }}" method="POST">
-                          <a class="btn btn-info" href="{{ route('admin-shoppinglist.show',$list->shopping_list_id) }}"> <i class="far fa-eye"></i></a>
-                          <a class="btn btn-primary" href="{{ route('admin-shoppinglist.edit',$list->shopping_list_id) }}"><i class="far fa-edit"></i></a>
+                        <form action="{{ route('admin-shoppinglist-additional.destroy',$list->shopping_add_id) }}" method="POST">
+                          <a class="btn btn-info" href="{{ route('admin-shoppinglist-additional.show',$list->shopping_add_id) }}"> <i class="far fa-eye"></i></a>
+                          <a class="btn btn-primary" href="{{ route('admin-shoppinglist-additional.edit',$list->shopping_add_id) }}"><i class="far fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="far fa-trash-alt"></i></button>

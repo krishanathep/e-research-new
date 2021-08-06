@@ -14,6 +14,8 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ProgressReportController;
 use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\CategorysController;
+use App\Http\Controllers\AdditionalController;
 
 use App\Http\Controllers\old\ProjectBController;
 use App\Http\Controllers\old\ProjectAController;
@@ -43,6 +45,9 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/admin', AdminController::class);
     Route::resource('admin-members', MemberController::class);
     Route::resource('admin-shoppinglist', ShoppingListController::class);
+    Route::resource('admin-shoppinglist-categorys', CategorysController::class);
+    Route::resource('admin-shoppinglist-additional', AdditionalController::class);
+
     Route::resource('admin-concepdevelopment', ConcepDevelopmentController::class);
     Route::resource('admin-proposaldevelopment', ProposalDevelopmentController::class);
     Route::resource('admin-psubmission', PsubmissionController::class);

@@ -12,11 +12,43 @@
     </a>
 </li>
 <li class="nav-item">
+    <a href="#" class="nav-link {{ request()->is('admin-shoppinglist*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-tags"></i>
+      <p>
+        Shoppinglist
+        <i class="fas fa-angle-left right"></i>
+        
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{ route('admin-shoppinglist.index') }}" class="nav-link {{ request()->is('admin-shoppinglist') ? 'active' : '' }}">
+          <i class="far fa-circle nav-icon"></i>
+          <p>จัดการหมวดหมู่</p>
+        </a>
+      </li>
+      <li class="nav-item">
+      <a href="{{ route('admin-shoppinglist-categorys.index') }}" class="nav-link {{ request()->is('admin-shoppinglist-categorys') ? 'active' : '' }}">
+          <i class="far fa-circle nav-icon"></i>
+          <p>หัวข้อวิจัย</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('admin-shoppinglist-additional.index') }}" class="nav-link {{ request()->is('admin-shoppinglist-additional') ? 'active' : '' }}">
+          <i class="far fa-circle nav-icon"></i>
+          <p>หัวข้อวิจัยเพิ่มเติม</p>
+        </a>
+      </li>
+    </ul>
+  </li>
+<!--
+<li class="nav-item">
     <a href="{{ route('admin-shoppinglist.index') }}" class="nav-link {{ request()->is('admin-shoppinglist*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-tags"></i>
         <p>Shopinglist</p>
     </a>
 </li>
+-->
 <li class="nav-item">
     <a href="{{ route('admin-concepdevelopment.index') }}" class="nav-link {{ request()->is('admin-concepdevelopment*') ? 'active' : '' }}">
     <i class="nav-icon fas fa-file-alt"></i>

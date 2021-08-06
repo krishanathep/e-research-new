@@ -52,7 +52,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'username' => 'required|exists:admin_users,username',
+            'username' => 'required|exists:admin_user,username',
             'password' => 'required',
         ]);
 
