@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Psubmission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class PsubmissionController extends Controller
 {
@@ -37,7 +38,19 @@ class PsubmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+
+        $this->validate($request, [     
+            'proposal_dev_approve_id' => 'required',
+            'proposalsub_ResearchType_id' => 'required',
+            'proposal_sub_status' => 'required',
+        ]);
+
+        Psubmission::create($request->all());
+
+        return redirect()->route('admin-psubmission.index')
+            ->with('success','Proposal supmission created successfully');
     }
 
     /**
@@ -46,8 +59,9 @@ class PsubmissionController extends Controller
      * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function show(Psubmission $psubmission)
+    public function show($id)
     {
+        $psubmission = Psubmission::findOrFail($id);   
         return view('admin.psubmission.show', compact('psubmission'));
     }
 
@@ -57,8 +71,9 @@ class PsubmissionController extends Controller
      * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function edit(Psubmission $psubmission)
+    public function edit($id)
     {
+        $psubmission = Psubmission::findOrFail($id);
         return view('admin.psubmission.edit', compact('psubmission'));
     }
 
@@ -69,9 +84,20 @@ class PsubmissionController extends Controller
      * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Psubmission $psubmission)
+    public function update(Request $request, $id)
     {
-        //
+         // drop foreingnkey
+         Schema::disableForeignKeyConstraints();
+
+         $this->validate($request, [
+            'proposal_dev_approve_id' => 'required',
+            'proposalsub_ResearchType_id' => 'required',
+            'proposal_sub_status' => 'required',
+        ]);
+ 
+        Psubmission::findOrFail($id)->update($request->all());
+        return redirect()->route('admin-psubmission.index')
+             ->with('success','Proposal submission updated successfully');
     }
 
     /**
@@ -80,8 +106,10 @@ class PsubmissionController extends Controller
      * @param  \App\Models\Psubmision  $psubmision
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Psubmission $psubmission)
+    public function destroy($id)
     {
-        //
+        Psubmission::findOrFail($id)->delete();
+        return redirect()->route('admin-psubmissionindex')
+            ->with('success','Proposal submission deleted successfully');
     }
 }

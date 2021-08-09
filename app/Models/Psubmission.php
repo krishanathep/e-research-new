@@ -13,7 +13,7 @@ class Psubmission extends Model
 
     protected $fillable = [
         'proposal_dev_approve_id',
-        'proposal_ResearchType_id',
-        'proposal_sub_state',
+        'proposalsub_ResearchType_id',
+        'proposal_sub_status',
     ];
 }

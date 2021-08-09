@@ -2,49 +2,58 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-black-50">Edit Proposal Submission</h1>
+        <h1 class="text-black-50">Create Proposal Submission</h1>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    <div class="card-header">Edit Proposal Submission</div>
-                    <div class="card-body container">
-                        <form action="">
-                            <div class="form-group">
-                                <label for="">Project Code</label>
-                                <input type="text" class='form-control'placeholder='Enter your project code'>
+                    <div class="card-header">Create Proposal Submission</div>
+                    <div class="card-body">
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
-                            <div class="form-group">
-                                <label for="">Project Name</label>
-                                <input type="text" class='form-control'placeholder='Enter your project name'>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Research</label>
-                                <input type="text" class='form-control'placeholder='Enter your research'>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Project Type</label>
-                                <input type="text" class='form-control'placeholder='Enter your project type'>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Head name</label>
-                                <input type="text" class='form-control'placeholder='Enter your phone head name'>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Budget</label>
-                                <input type="text" class='form-control'placeholder='Enter your budget'>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Period</label>
-                                <input type="text" class='form-control'placeholder='Enter your period'>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Cratet date</label>
-                                <input type="text" class='form-control'placeholder='Enter your create date'>
-                            </div>
-                            <div class="form-group float-right">
-                                <a href="{{ route('admin-psubmission.index') }}" class='btn btn-secondary'><i class="far fa-arrow-alt-circle-left"></i> Go Back</a>
-                                <button type='submit' class='btn btn-primary'> <i class="far fa-check-circle"></i> Submit</button>
-                            </div>
+                        @endif
+
+                        <form action="{{ route('admin-psubmission.update', $psubmission->proposal_sub_id) }}" method='POST'>
+                            @csrf
+                            @method('PUT')
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Approve : </strong>
+                                        <input type="text" name='proposal_dev_approve_id' class="form-control" value="{{ $psubmission->proposal_dev_approve_id }}"
+                                            placeholder='Enter Approve...'>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Type : </strong>
+                                        <input type="text" name='proposalsub_ResearchType_id' class="form-control" value="{{ $psubmission->proposalsub_ResearchType_id }}"
+                                            placeholder='Enter Type...'>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        <strong>Status : </strong>
+                                        <input type="text" name='proposal_sub_status' class="form-control" value="{{ $psubmission->proposal_sub_status }}"
+                                            placeholder='Enter Status...'>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class='float-right'>
+                                        <a href="{{ route('admin-psubmission.index') }}"
+                                            class='btn btn-secondary'><i class="far fa-arrow-alt-circle-left"></i> Go
+                                            Back</a>
+                                        <button type="submit" class="btn btn-primary"> <i class="far fa-check-circle"></i>
+                                            Submit</button>
+                                    </div>
+                                </div>
                         </form>
                     </div>
                 </div>

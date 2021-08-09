@@ -47,7 +47,13 @@
                         <td>{{ $list->shopping_category_name_th }}</td>
                         <td>{{ $list->shopping_category_name_en }}</td>
                         <td>{{ $list->shopping_category_details }}</td>
-                        <td>{{ $list->shopping_category_status }}</td>
+                        <td align="center">
+                          @if ($list->shopping_category_status == 1)
+                            <span class="badge badge-success">Enable</span>
+                          @else
+                            <span class="badge badge-danger">Disable</span>
+                          @endif
+                        </td>
                         <td>{{ $list->created_at }}</td>
                         <td>{{ $list->updated_at }}</td>
                       <td>
