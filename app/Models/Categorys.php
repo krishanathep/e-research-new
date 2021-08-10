@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorys extends Model
 {
+    use HasFactory;
+
     protected $table = 'shopping_category';
 
     protected $primaryKey = 'shopping_category_id';
@@ -17,4 +19,8 @@ class Categorys extends Model
         'shopping_category_details',
         'shopping_category_status',
     ];
+
+    public function shoppinglist(){
+        return $this->hasMany(Shoppinglist::class);
+    }
 }

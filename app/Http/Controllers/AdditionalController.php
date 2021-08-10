@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Additional;
+use App\Models\Categorys;
 use Illuminate\Support\Facades\Schema;
 
 class AdditionalController extends Controller
@@ -15,8 +16,9 @@ class AdditionalController extends Controller
      */
     public function index()
     {
+        $categorys = Categorys::all();
         $additional = Additional::all();
-        return view('admin.shoppinglist.additional.index', compact('additional'));
+        return view('admin.shoppinglist.additional.index', compact('additional','categorys' ));
     }
 
     /**

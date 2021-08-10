@@ -15,11 +15,11 @@
                         </tr>
                         <tr>
                             <td>Category</td>
-                            <td>{{ $shoppinglist->category_id }}</td>
+                            <td>{{ $shoppinglist->categorys->shopping_category_name_th }}</td>
                         </tr>
                         <tr>
                             <td>Branch</td>
-                            <td>{{ $shoppinglist->category_branch_id }}</td>
+                            <td>{{ $shoppinglist->branch->branch_name_en }}</td>
                         </tr>
                         <tr>
                             <td>User</td>

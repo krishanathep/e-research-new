@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shoppinglist;
+use App\Models\Categorys;
+use App\Models\Branch;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,7 +17,8 @@ class ShoppingListController extends Controller
      */
     public function index()
     {
-        $shoppinglist = Shoppinglist::all();
+        
+        $shoppinglist = Shoppinglist::with('categorys', 'branch')->orderBy('shopping_list_id', 'desc')->get();
 
         return view('admin.shoppinglist.group.index', compact('shoppinglist'));
     }
@@ -27,7 +30,10 @@ class ShoppingListController extends Controller
      */
     public function create()
     {
-        return view('admin.shoppinglist.group.create');
+        $categorys = Categorys::all();
+        $branch = Branch::all();
+
+        return view('admin.shoppinglist.group.create', compact('categorys', 'branch'));
     }
 
     /**
@@ -61,6 +67,7 @@ class ShoppingListController extends Controller
      */
     public function show($id)
     {
+        
         $shoppinglist = Shoppinglist::findOrFail($id);
         return view('admin.shoppinglist.group.show', compact('shoppinglist'));
     }
@@ -73,8 +80,11 @@ class ShoppingListController extends Controller
      */
     public function edit($id)
     {
+        $categorys = Categorys::all();
+        $branch = Branch::all();
         $shoppinglist = Shoppinglist::findOrFail($id);
-        return view('admin.shoppinglist.group.edit', compact('shoppinglist'));
+
+        return view('admin.shoppinglist.group.edit', compact('shoppinglist', 'categorys', 'branch'));
     }
 
     /**

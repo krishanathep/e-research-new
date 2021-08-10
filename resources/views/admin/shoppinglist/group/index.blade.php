@@ -29,7 +29,7 @@
               <div class="card-body">           
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
-                  <tr>
+                  <tr align="center">
                     <th>ID</th>
                     <th>Category</th>
                     <th>Branch</th>
@@ -43,8 +43,8 @@
                     @foreach ($shoppinglist as $list)
                     <tr>
                         <td>{{ $list->shopping_list_id }}</td>
-                        <td>{{ $list->category_id }}</td>
-                        <td>{{ $list->category_branch_id }}</td>
+                        <td>{{ $list->categorys->shopping_category_name_th }}</td>
+                        <td>{{ $list->branch->branch_name_en }}</td>
                         <td>{{ $list->user_id }}</td>
                         <td>{{ $list->created_at }}</td>
                         <td>{{ $list->updated_at }}</td>

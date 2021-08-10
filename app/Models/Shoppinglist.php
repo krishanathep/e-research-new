@@ -16,4 +16,12 @@ class Shoppinglist extends Model
         'category_branch_id',
         'user_id',
     ];
+
+    public function categorys(){
+        return $this->belongsTo(Categorys::class, 'category_id');
+    }
+
+    public function branch(){
+        return $this->belongsTo(Branch::class, 'category_branch_id');
+    }
 }

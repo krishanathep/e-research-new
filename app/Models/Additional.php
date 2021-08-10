@@ -18,4 +18,8 @@ class Additional extends Model
         'shopping_add_details',
         'shopping_list_status',
     ];
+
+    public function categorys(){
+        return $this->belongsTo(Categorys::class);
+    }
 }
