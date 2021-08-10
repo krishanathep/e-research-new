@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Members extends Model
 {
-    protected $table = 'ers_users';
+    protected $table = 'user';
+
+    protected $primaryKey = 'user_id';
+
+    public function shoppinglist(){
+        return $this->hasMany(Shoppinglist::class);
+    }
 }

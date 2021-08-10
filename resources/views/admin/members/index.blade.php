@@ -27,31 +27,37 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Email</th>
+                    <th>Prefix</th>
                     <th>Username</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Position</th>
-                    <th>Phone</th>
-                    <th>Create At</th>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Dep</th>
+                    <th>Pos</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Create</th>
+                    <th>Update</th>
                     <th width='15%'>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
                     @foreach ($members as $member)
                     <tr>
-                      <td>{{ $member->id }}</td>
-                      <td>{{ $member->email }}</td>
+                      <td>{{ $member->user_id }}</td>
+                      <td>{{ $member->User_prefix_id  }}</td>
                       <td>{{ $member->username }}</td>
-                      <td>{{ $member->firstname }}</td>
-                      <td>{{ $member->lastname }}</td>
-                      <td>{{ $member->position }}</td>
-                      <td>{{ $member->phone }}</td>
+                      <td>{{ $member->User_FName }}</td>
+                      <td>{{ $member->User_LName }}</td>
+                      <td>{{ $member->User_DepartmentID }}</td>
+                      <td>{{ $member->User_Position_id }}</td>
+                      <td>{{ $member->User_Email }}</td>
+                      <td>{{ $member->User_Mobile }}</td>
                       <td>{{ $member->created_at }}</td>
+                      <td>{{ $member->updated_at }}</td>
                       <td>
-                        <form action="{{ route('admin-members.destroy',$member->id) }}" method="POST">
-                          <a class="btn btn-info" href="{{ route('admin-members.show',$member->id) }}"> <i class="far fa-eye"></i></a>
-                          <a class="btn btn-primary" href="{{ route('admin-members.edit',$member->id) }}"><i class="far fa-edit"></i></a>
+                        <form action="" method="POST">
+                          <a class="btn btn-info" href=""> <i class="far fa-eye"></i></a>
+                          <a class="btn btn-primary" href=""><i class="far fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
                           <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure to delete?')"> <i class="far fa-trash-alt"></i></button>

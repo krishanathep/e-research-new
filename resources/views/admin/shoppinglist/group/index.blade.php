@@ -45,7 +45,7 @@
                         <td>{{ $list->shopping_list_id }}</td>
                         <td>{{ $list->categorys->shopping_category_name_th }}</td>
                         <td>{{ $list->branch->branch_name_en }}</td>
-                        <td>{{ $list->user_id }}</td>
+                        <td>{{ $list->members->User_FName }}</td>
                         <td>{{ $list->created_at }}</td>
                         <td>{{ $list->updated_at }}</td>
                       <td>

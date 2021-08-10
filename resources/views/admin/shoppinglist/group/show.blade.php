@@ -23,7 +23,7 @@
                         </tr>
                         <tr>
                             <td>User</td>
-                            <td>{{ $shoppinglist->user_id }}</td>
+                            <td>{{ $shoppinglist->members->User_FName }}</td>
                         </tr>
                         <tr>
                             <td>Create at</td>

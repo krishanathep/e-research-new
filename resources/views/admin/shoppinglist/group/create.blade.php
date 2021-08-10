@@ -46,10 +46,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="col-xs-12 cal-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <strong>User : </strong>
-                                    <input type="text" name='user_id' class="form-control" placeholder='Enter User...'>
+                                    <label for="sel1">User Name :</label>
+                                    <select class="form-control" id="sel1" name="user_id">
+                                        <option value="">Please Select...</option>
+                                        @foreach ($members as $item)
+                                            <option value="{{ $item->user_id }}">{{ $item->User_FName }}
+                                            </option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12">

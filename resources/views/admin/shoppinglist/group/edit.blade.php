@@ -37,7 +37,6 @@
                                         </select>
                                     </div>
                                 </div>
-
                                 <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
                                         <label for="sel1">Category Branch:</label>
@@ -50,12 +49,16 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>User : </strong>
-                                        <input type="text" name='user_id' class="form-control"
-                                            value="{{ $shoppinglist->user_id }}" placeholder='Enter User...'>
+                                        <label for="sel1">User Name:</label>
+                                        <select class="form-control" id="sel1" name="user_id">
+                                            @foreach ($members as $item)
+                                                <option value="{{ $item->user_id }}"
+                                                    {{ $item->user_id == $shoppinglist->user_id ? 'selected' : '' }}>
+                                                    {{ $item->User_FName }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
