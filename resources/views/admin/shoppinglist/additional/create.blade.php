@@ -23,18 +23,28 @@
                         <form action="{{ route('admin-shoppinglist-additional.store') }}" method='POST'>
                             @csrf
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>User: </strong>
-                                        <input type="text" name='user_id' class="form-control"
-                                            placeholder='Enter User...'>
+                                        <label for="sel1">User :</label>
+                                        <select class="form-control" id="sel1" name="user_id">
+                                            <option value="">Please Select...</option>
+                                            @foreach ($members as $item)
+                                                <option value="{{ $item->user_id }}">
+                                                    {{ $item->username }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Category: </strong>
-                                        <input type="text" name='shopping_category_id' class="form-control"
-                                            placeholder='Enter Category...'>
+                                        <label for="sel1">Category :</label>
+                                        <select class="form-control" id="sel1" name="user_id">
+                                            <option value="">Please Select...</option>
+                                            @foreach ($categorys as $item)
+                                                <option value="{{ $item->shopping_category_id }}">
+                                                    {{ $item->shopping_category_name_th }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -51,12 +61,16 @@
                                             placeholder='Enter category add detail...'>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Category Add Status : </strong>
-                                        <input type="text" name='shopping_list_status' class="form-control"
-                                            placeholder='Enter category add status...'>
-                                    </div>
+                                        <label for="sel1">Category Add Status :</label>
+                                        <select class="form-control" id="sel1" name="shopping_list_status">
+                                          <option value="0">Waitinng</option>
+                                          <option value="1">Approved</option>
+                                          <option value="8">Canceled</option>
+                                          <option value="9">No Approve</option>
+                                        </select>
+                                      </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class='float-right'>

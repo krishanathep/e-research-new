@@ -49,9 +49,9 @@
                         <td>{{ $list->shopping_category_details }}</td>
                         <td align="center">
                           @if ($list->shopping_category_status == 1)
-                            <span class="badge badge-success">Enable</span>
+                            <p class="text-success">Enable</p>
                           @else
-                            <span class="badge badge-danger">Disable</span>
+                            <p class="text-danger">Disable</p>
                           @endif
                         </td>
                         <td>{{ $list->created_at }}</td>

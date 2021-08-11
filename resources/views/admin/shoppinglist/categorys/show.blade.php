@@ -29,9 +29,9 @@
                                 <td>Category Status</td>
                                 <td>
                                     @if ($categorys->shopping_category_status == 1)
-                                        <span class="badge badge-success">Enable</span>
+                                        <p class="text-success">Enable</p>
                                     @else
-                                        <span class="badge badge-danger">Disable</span>
+                                        <p class="text-danger">Disable</p>
                                     @endif
                                 </td>
                             </tr>

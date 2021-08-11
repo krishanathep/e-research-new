@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Proposaldevelopment;
+use App\Models\Concepapprove;
+use App\Models\Research;
+use App\Models\Shoppinglist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,8 +18,7 @@ class ProposalDevelopmentController extends Controller
      */
     public function index()
     {
-        $proposaldevelopment = Proposaldevelopment::all();
-
+        $proposaldevelopment = Proposaldevelopment::with('concepapprove', 'research', 'shoppinglist')->orderBy('proposal_dev_id', 'desc')->get();
         return view('admin.proposaldevelopment.index', compact('proposaldevelopment'));
     }
 

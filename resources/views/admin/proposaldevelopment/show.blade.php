@@ -19,7 +19,7 @@
                             </tr>
                             <tr>
                                 <td>Shoppinglist</td>
-                                <td>{{ $proposaldevelopment->shopping_id }}</td>
+                                <td>{{ $proposaldevelopment->shoppinglist->shopping_list_id }}</td>
                             </tr>
                             <tr>
                                 <td>Name</td>

@@ -24,11 +24,16 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>SL id : </strong>
-                                        <input type="text" name='shopping_list_id' class="form-control" value="{{ $concepdevelopment->shopping_list_id }}"
-                                            placeholder='Enter sl id...'>
+                                        <label for="sel1">Categorys :</label>
+                                        <select class="form-control" id="sel1" name="shopping_list_id">
+                                            @foreach ($shoppinglist as $item)
+                                                <option value="{{ $item->shopping_list_id }}"
+                                                    {{ $item->shopping_list_id == $concepdevelopment->shopping_list_id ? 'selected' : '' }}>
+                                                    {{ $item->shopping_list_id }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -45,19 +50,28 @@
                                             placeholder='Enter detail...'>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Type : </strong>
-                                        <input type="text" name='research_type_id' class="form-control" value="{{ $concepdevelopment->research_type_id }}"
-                                            placeholder='Enter type...'>
+                                        <label for="sel1">Type :</label>
+                                        <select class="form-control" id="sel1" name="research_type_id">
+                                            @foreach ($research as $item)
+                                                <option value="{{ $item->Research_types_id  }}"
+                                                    {{ $item->Research_types_id  == $concepdevelopment->research_type_id ? 'selected' : '' }}>
+                                                    {{ $item->types_name_th }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Status : </strong>
-                                        <input type="text" name='concept_dev_status' class="form-control" value="{{ $concepdevelopment->concept_dev_status }}"
-                                            placeholder='Enter status...'>
-                                    </div>
+                                        <label for="sel1">Category Add Status :</label>
+                                        <select class="form-control" id="sel1" name="concept_dev_status">
+                                          <option value="0" {{ $concepdevelopment->concept_dev_status == 0 ? 'selected' : '' }}>Waitinng</option>
+                                          <option value="1" {{ $concepdevelopment->concept_dev_status == 1 ? 'selected' : '' }}>Approved</option>
+                                          <option value="8" {{ $concepdevelopment->concept_dev_status == 8 ? 'selected' : '' }}>Canceled</option>
+                                          <option value="9" {{ $concepdevelopment->concept_dev_status == 9 ? 'selected' : '' }}>No Approve</option>
+                                        </select>
+                                      </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class='float-right'>

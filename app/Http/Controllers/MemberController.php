@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Members;
+use App\Models\Department;
+use App\Models\Prefix;
+use App\Models\Position;
+use Illuminate\Support\Facades\Schema;
 
 class MemberController extends Controller
 {
@@ -14,7 +18,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = Members::all();
+        $members = Members::with('department', 'prefix', 'position')->orderBy('user_id', 'desc')->get();
         return view('admin.members.index', compact('members'));
     }
 
@@ -60,9 +64,12 @@ class MemberController extends Controller
      */
     public function edit($id)
     {
+        $department = Department::all();
+        $prefix = Prefix::all();
+        $position = Position::all();
         $members = Members::findOrFail($id);
         
-        return view('admin.members.edit', compact('members'));
+        return view('admin.members.edit', compact('members','prefix', 'position', 'department'));
     }
 
     /**
@@ -74,7 +81,23 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+
+        $this->validate($request, [
+            'User_prefix_id' => 'required',
+            'User_FName' => 'required',
+            'User_LName' => 'required',
+            'User_DepartmentID' => 'required',
+            'User_Position_id' => 'required',
+            'User_Email' => 'required',
+            'User_Mobile' => 'required',
+        ]);
+
+        Members::findOrFail($id)->update($request->all());
+
+        return redirect()->route('admin-members.index')
+            ->with('success','Member updated successfully');
     }
 
     /**

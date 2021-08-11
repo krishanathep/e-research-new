@@ -23,11 +23,16 @@
                         <form action="{{ route('admin-concepdevelopment.store') }}" method='POST'>
                             @csrf
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>SL id : </strong>
-                                        <input type="text" name='shopping_list_id' class="form-control"
-                                            placeholder='Enter sl id...'>
+                                        <label for="sel1">Shopping ID :</label>
+                                        <select class="form-control" id="sel1" name="shopping_list_id">
+                                            <option value="">Please Select...</option>
+                                            @foreach ($shoppinglist as $item)
+                                                <option value="{{ $item->shopping_list_id }}">
+                                                    {{ $item->shopping_list_id }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -44,19 +49,28 @@
                                             placeholder='Enter detail...'>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>CR type : </strong>
-                                        <input type="text" name='research_type_id' class="form-control"
-                                            placeholder='Enter cr type...'>
+                                        <label for="sel1">CR Type :</label>
+                                        <select class="form-control" id="sel1" name="research_type_id">
+                                            <option value="">Please Select...</option>
+                                            @foreach ($research as $item)
+                                                <option value="{{ $item->Research_types_id }}">
+                                                    {{ $item->types_name_th }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Status : </strong>
-                                        <input type="text" name='concept_dev_status' class="form-control"
-                                            placeholder='Enter status...'>
-                                    </div>
+                                        <label for="sel1">Status :</label>
+                                        <select class="form-control" id="sel1" name="concept_dev_status">
+                                          <option value="0">Waitinng</option>
+                                          <option value="1">Approved</option>
+                                          <option value="8">Canceled</option>
+                                          <option value="9">No Approve</option>
+                                        </select>
+                                      </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class='float-right'>

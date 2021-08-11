@@ -10,36 +10,28 @@
                     <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <tr>
-                            <td>Email</td>
-                            <td>{{ $members->email }}</td>
-                        </tr>
-                        <tr>
-                            <td>Username</td>
+                            <td>User</td>
                             <td>{{ $members->username }}</td>
                         </tr>
                         <tr>
-                            <td>First Name</td>
-                            <td>{{ $members->firstname }}</td>
+                            <td>Name</td>
+                            <td>{{ $members->prefix->prefix_name_th }} {{ $members->User_FName }} {{ $members->User_LName }}</td>
                         </tr>
                         <tr>
-                            <td>Last Name</td>
-                            <td>{{ $members->lastname }}</td>
+                            <td>Deppartment</td>
+                            <td>{{ $members->department->department_name }}</td>
                         </tr>
                         <tr>
                             <td>Position</td>
-                            <td>{{ $members->position }}</td>
+                            <td>{{ $members->position->position_name }}</td>
                         </tr>
                         <tr>
-                            <td>Tel</td>
-                            <td>{{ $members->tel }}</td>
+                            <td>Email</td>
+                            <td>{{ $members->User_Email }}</td>
                         </tr>
                         <tr>
-                            <td>Phone</td>
-                            <td>{{ $members->phone }}</td>
-                        </tr>
-                        <tr>
-                            <td>Type</td>
-                            <td>{{ $members->type }}</td>
+                            <td>Mobile</td>
+                            <td>{{ $members->User_Mobile }}</td>
                         </tr>
                         <tr>
                             <td>Create At</td>

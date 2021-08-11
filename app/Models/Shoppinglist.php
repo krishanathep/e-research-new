@@ -28,4 +28,12 @@ class Shoppinglist extends Model
     public function members(){
         return $this->belongsTo(Members::class, 'user_id');
     }
+
+    public function concepdevelopment(){
+        return $this->hasMany(Concepdevelopment::class);
+    }
+
+    public function proposaldevelopment(){
+        return $this->hasMany(Proposaldevelopment::class);
+    }
 }

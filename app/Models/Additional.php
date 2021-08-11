@@ -20,6 +20,10 @@ class Additional extends Model
     ];
 
     public function categorys(){
-        return $this->belongsTo(Categorys::class);
+        return $this->belongsTo(Categorys::class, 'shopping_category_id');
+    }
+
+    public function members(){
+        return $this->belongsTo(Members::class, 'user_id');
     }
 }

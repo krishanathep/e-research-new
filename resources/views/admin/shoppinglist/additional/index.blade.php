@@ -45,11 +45,21 @@
                     @foreach ($additional as $list)
                     <tr>
                         <td>{{ $list->shopping_add_id }}</td>
-                        <td>{{ $list->user_id }}</td>
-                        <td>{{ $list->shopping_category_id }}</td>
+                        <td>{{ $list->members->username }}</td>
+                        <td>{{ $list->categorys->shopping_category_name_th }}</td>
                         <td>{{ $list->shopping_add_name }}</td>
                         <td>{{ $list->shopping_add_details }}</td>
-                        <td>{{ $list->shopping_list_status }}</td>
+                        <td>
+                          @if ($list->shopping_list_status == 0)
+                              <p class="text-primary">Waiting</p>
+                          @elseif ($list->shopping_list_status == 1)
+                              <p class="text-success">Approved</p>
+                          @elseif ($list->shopping_list_status == 8)
+                              <p class="text-warning">Canceled</p>
+                          @else
+                              <p class="text-danger">No Approve</p>
+                          @endif
+                        </td>
                         <td>{{ $list->created_at }}</td>
                         <td>{{ $list->updated_at }}</td>
                       <td>

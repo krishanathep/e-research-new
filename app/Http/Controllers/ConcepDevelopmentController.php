@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Concepdevelopment;
+use App\Models\Shoppinglist;
+use App\Models\Research;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,8 +17,7 @@ class ConcepDevelopmentController extends Controller
      */
     public function index()
     {
-        $concepdevelopment = Concepdevelopment::all();
-
+        $concepdevelopment = Concepdevelopment::with('shoppinglist', 'research')->orderBy('concept_dev_id', 'desc')->get();
         return view('admin.concepdevelopment.index', compact('concepdevelopment'));
     }
 
@@ -27,7 +28,9 @@ class ConcepDevelopmentController extends Controller
      */
     public function create()
     {
-        return view('admin.concepdevelopment.create');
+        $shoppinglist = Shoppinglist::all();
+        $research = Research::all();
+        return view('admin.concepdevelopment.create', compact('shoppinglist', 'research'));
     }
 
     /**
@@ -75,8 +78,10 @@ class ConcepDevelopmentController extends Controller
      */
     public function edit($id)
     {
+        $shoppinglist = Shoppinglist::all();
+        $research = Research::all();
         $concepdevelopment = Concepdevelopment::findOrFail($id);
-        return view('admin.concepdevelopment.edit', compact('concepdevelopment'));
+        return view('admin.concepdevelopment.edit', compact('concepdevelopment', 'shoppinglist', 'research'));
     }
 
     /**

@@ -23,4 +23,8 @@ class Categorys extends Model
     public function shoppinglist(){
         return $this->hasMany(Shoppinglist::class);
     }
+
+    public function addtional(){
+        return $this->hasMany(Addtional::class);
+    }
 }

@@ -20,4 +20,17 @@ class Proposaldevelopment extends Model
         'proposal_dev_type',
         'proposal_dev_status',
     ];
+
+
+    public function shoppinglist(){
+        return $this->belongsTo(Shoppinglist::class, 'shopping_id');
+    }
+
+    public function research(){
+        return $this->belongsTo(Research::class, 'research_type_id');
+    }
+
+    public function Concepapprove(){
+        return $this->belongsTo(Concepapprove::class, 'concept_dev_approve_id');
+    }
 }

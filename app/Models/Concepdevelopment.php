@@ -20,4 +20,11 @@ class Concepdevelopment extends Model
         'concept_dev_status',
     ];
 
+    public function research(){
+        return $this->belongsTo(Research::class, 'research_type_id');
+    }
+
+    public function shoppinglist(){
+        return $this->belongsTo(Shoppinglist::class, 'shopping_list_id');
+    }
 }

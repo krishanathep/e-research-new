@@ -24,18 +24,28 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>User: </strong>
-                                        <input type="text" name='user_id' class="form-control" value="{{ $additional->user_id }}"
-                                            placeholder='Enter User...'>
+                                        <label for="sel1">User:</label>
+                                        <select class="form-control" id="sel1" name="user_id">
+                                            @foreach ($members as $item)
+                                                <option value="{{ $item->user_id }}"
+                                                    {{ $item->user_id == $additional->shopping_add_id ? 'selected' : '' }}>
+                                                    {{ $item->User_FName }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Category: </strong>
-                                        <input type="text" name='shopping_category_id' class="form-control" value="{{ $additional->shopping_category_id }}"
-                                            placeholder='Enter Category...'>
+                                        <label for="sel1">Categorys :</label>
+                                        <select class="form-control" id="sel1" name="shopping_category_id">
+                                            @foreach ($categorys as $item)
+                                                <option value="{{ $item->shopping_category_id }}"
+                                                    {{ $item->shopping_category_id == $additional->shopping_add_id ? 'selected' : '' }}>
+                                                    {{ $item->shopping_category_name_th }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -52,12 +62,16 @@
                                             placeholder='Enter category add detail...'>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="col-xs-12 cal-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Category Add Status : </strong>
-                                        <input type="text" name='shopping_list_status' class="form-control" value="{{ $additional->shopping_list_status }}"
-                                            placeholder='Enter category add status...'>
-                                    </div>
+                                        <label for="sel1">Category Add Status :</label>
+                                        <select class="form-control" id="sel1" name="shopping_list_status">
+                                          <option value="0" {{ $additional->shopping_category_status == 0 ? 'selected' : '' }}>Waitinng</option>
+                                          <option value="1" {{ $additional->shopping_category_status == 1 ? 'selected' : '' }}>Approved</option>
+                                          <option value="8" {{ $additional->shopping_category_status == 8 ? 'selected' : '' }}>Canceled</option>
+                                          <option value="9" {{ $additional->shopping_category_status == 9 ? 'selected' : '' }}>No Approve</option>
+                                        </select>
+                                      </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class='float-right'>
