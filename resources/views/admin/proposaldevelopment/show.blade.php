@@ -15,11 +15,11 @@
                             </tr>
                             <tr>
                                 <td>Approved</td>
-                                <td>{{ $proposaldevelopment->concept_approve_id }}</td>
+                                <td>{{ $proposaldevelopment->concepapprove->concept_dev_id }}</td>
                             </tr>
                             <tr>
                                 <td>Shoppinglist</td>
-                                <td>{{ $proposaldevelopment->shoppinglist->shopping_list_id }}</td>
+                                <td>{{ $proposaldevelopment->shoppinglist->shopping_list_id  }}</td>
                             </tr>
                             <tr>
                                 <td>Name</td>
@@ -31,15 +31,31 @@
                             </tr>
                             <tr>
                                 <td>Re type</td>
-                                <td>{{ $proposaldevelopment->research_type_id }}</td>
+                                <td>{{ $proposaldevelopment->research->types_name_th }}</td>
                             </tr>
                             <tr>
                                 <td>Type</td>
-                                <td>{{ $proposaldevelopment->proposal_dev_type }}</td>
+                                <td>
+                                @if ($proposaldevelopment->proposal_dev_type == 1)
+                                <p class="text-primary">ขอสนับสนุนงบประมาณ</p>
+                                @else
+                                <p class="text-success">พัฒนาโครงการวิจัย</p>   
+                                @endif
+                                </td>
                             </tr>
                             <tr>
                                 <td>Status</td>
-                                <td>{{ $proposaldevelopment->proposal_dev_status }}</td>
+                                <td>
+                                    @if ($proposaldevelopment->proposal_dev_status == 0)
+                                    <p class="text-primary">Waiting</p>
+                                @elseif ($proposaldevelopment->proposal_dev_status == 1)
+                                    <p class="text-success">Approved</p>
+                                @elseif ($proposaldevelopment->proposal_dev_status == 8)
+                                    <p class="text-warning">Canceled</p>
+                                @else
+                                    <p class="text-danger">No Approve</p>
+                                @endif
+                                </td>
                             </tr>
                             <td>Create at</td>
                                 <td>{{ $proposaldevelopment->created_at }}</td>

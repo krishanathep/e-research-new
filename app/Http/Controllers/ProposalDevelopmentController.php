@@ -19,6 +19,7 @@ class ProposalDevelopmentController extends Controller
     public function index()
     {
         $proposaldevelopment = Proposaldevelopment::with('concepapprove', 'research', 'shoppinglist')->orderBy('proposal_dev_id', 'desc')->get();
+       // dd($proposaldevelopment);
         return view('admin.proposaldevelopment.index', compact('proposaldevelopment'));
     }
 
@@ -80,8 +81,12 @@ class ProposalDevelopmentController extends Controller
      */
     public function edit($id)
     {
+        $concepapprove = Concepapprove::all();
+        $research = Research::all();
+        $shoppinglist = Shoppinglist::all();
+
         $proposaldevelopment = Proposaldevelopment::findOrFail($id);
-        return view('admin.proposaldevelopment.edit', compact('proposaldevelopment'));
+        return view('admin.proposaldevelopment.edit', compact('proposaldevelopment', 'concepapprove', 'research', 'shoppinglist'));
     }
 
     /**

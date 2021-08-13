@@ -40,4 +40,8 @@ class Members extends Model
     public function addtional(){
         return $this->hasMany(Addtional::class);
     }
+
+    public function progress(){
+        return $this->hasMany(Progress::class);
+    }
 }

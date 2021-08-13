@@ -16,4 +16,16 @@ class Psubmission extends Model
         'proposalsub_ResearchType_id',
         'proposal_sub_status',
     ];
+
+    public function progress(){
+        return $this->hasMany(Progress::class);
+    }
+
+    public function pdevpaarove(){
+        return $this->belongsTo(Pdevpaarove::class, 'proposal_dev_approve_id');
+    }
+
+    public function research(){
+        return $this->belongsTo(Research::class, 'proposalsub_ResearchType_id');
+    }
 }

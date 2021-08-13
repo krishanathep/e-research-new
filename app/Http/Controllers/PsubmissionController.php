@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Psubmission;
+use App\Models\Research;
+use App\Models\Pdevpaarove;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,8 +17,8 @@ class PsubmissionController extends Controller
      */
     public function index()
     {
-        $psubmission = Psubmission::all();
-
+        $psubmission = Psubmission::with('research', 'pdevpaarove')->orderBy('proposal_sub_id', 'desc')->get();
+        //dd($psubmission);
         return view('admin.psubmission.index', compact('psubmission'));
     }
 
@@ -73,8 +75,10 @@ class PsubmissionController extends Controller
      */
     public function edit($id)
     {
+        $research = Research::all();
+        $pdevpaarove = Pdevpaarove::all();
         $psubmission = Psubmission::findOrFail($id);
-        return view('admin.psubmission.edit', compact('psubmission'));
+        return view('admin.psubmission.edit', compact('psubmission', 'research', 'pdevpaarove'));
     }
 
     /**
@@ -109,7 +113,7 @@ class PsubmissionController extends Controller
     public function destroy($id)
     {
         Psubmission::findOrFail($id)->delete();
-        return redirect()->route('admin-psubmissionindex')
+        return redirect()->route('admin-psubmission.index')
             ->with('success','Proposal submission deleted successfully');
     }
 }

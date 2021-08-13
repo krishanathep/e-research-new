@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Progress;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class ProgressController extends Controller
 {
@@ -14,7 +15,8 @@ class ProgressController extends Controller
      */
     public function index()
     {
-        return view('admin.progress.index');
+        $progress = Progress::all();
+        return view('admin.progress.index', compact('progress'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProgressController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.progress.create');
     }
 
     /**
@@ -44,9 +46,10 @@ class ProgressController extends Controller
      * @param  \App\Models\Progress  $progress
      * @return \Illuminate\Http\Response
      */
-    public function show(Progress $progress)
+    public function show($id)
     {
-        //
+        $progress = Progress::findOrFail($id);
+        return view('admin.progress.show', compact('progress'));
     }
 
     /**
@@ -55,9 +58,10 @@ class ProgressController extends Controller
      * @param  \App\Models\Progress  $progress
      * @return \Illuminate\Http\Response
      */
-    public function edit(Progress $progress)
+    public function edit($id)
     {
-        //
+        $progress = Progress::findOrFail($id);
+        return view('admin.progress.edit', compact('progress'));
     }
 
     /**
@@ -67,9 +71,22 @@ class ProgressController extends Controller
      * @param  \App\Models\Progress  $progress
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Progress $progress)
+    public function update(Request $request, $id)
     {
-        //
+        // drop foreingnkey
+        Schema::disableForeignKeyConstraints();
+
+        $this->validate($request, [
+            'proposal_sub_id' => 'required',
+            'project_prograss_type' => 'required',
+            'project_prograss_expense_budget' => 'required',
+            'project_prograss_status' => 'required',
+        ]);
+
+        Progress::findOrFail($id)->update($request->all());
+
+        return redirect()->route('admin-progress.index')
+            ->with('success','Project Progress updated successfully');
     }
 
     /**
@@ -78,8 +95,11 @@ class ProgressController extends Controller
      * @param  \App\Models\Progress  $progress
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Progress $progress)
+    public function destroy($id)
     {
-        //
+        Progress::findOrFail($id)->delete();
+
+        return redirect()->route('admin-progress.index')
+            ->with('success','Project Progres Deleted successfully');
     }
 }

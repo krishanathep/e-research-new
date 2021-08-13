@@ -20,4 +20,8 @@ class Research extends Model
     public function proposaldevelopment(){
         return $this->hasMany(Proposaldevelopment::class);
     }
+
+    public function psubmission(){
+        return $this->hasMany(Psubmission::class);
+    }
 }

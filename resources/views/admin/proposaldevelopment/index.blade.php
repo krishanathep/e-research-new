@@ -15,7 +15,9 @@
                   <h1 class="text-black-50">Proposal Development</h1>
                 </div>
                 <div class="float-right">
+                  <!--
                   <a class="btn btn-success mt-2" href="{{ route('admin-proposaldevelopment.create') }}"> <i class="fas fa-plus"></i> Create </a>
+                  -->
                 </div>
             </div>
             <div class="col-lg-12">
@@ -48,12 +50,28 @@
                     <tr>
                         <td>{{ $item->proposal_dev_id }}</td>
                         <td>{{ $item->concept_approve_id }}</td>
-                        <td>{{ $item->shopping_id }}</td>
+                        <td>{{ $item->shoppinglist->shopping_list_id }}</td>
                         <td>{{ $item->proposal_dev_name }}</td>
                         <td>{{ $item->proposal_dev_details }}</td>
-                        <td>{{ $item->research_type_id }}</td>
-                        <td>{{ $item->proposal_dev_type }}</td>
-                        <td>{{ $item->proposal_dev_status }}</td>
+                        <td>{{ $item->research->types_name_th }}</td>
+                        <td>
+                          @if ($item->proposal_dev_type == 1)
+                          <p class="text-primary">ขอสนับสนุนงบประมาณ</p>
+                          @else
+                          <p class="text-success">พัฒนาโครงการวิจัย</p>   
+                          @endif
+                        </td>
+                        <td>
+                          @if ($item->proposal_dev_status == 0)
+                          <p class="text-primary">Waiting</p>
+                      @elseif ($item->proposal_dev_status == 1)
+                          <p class="text-success">Approved</p>
+                      @elseif ($item->proposal_dev_status == 8)
+                          <p class="text-warning">Canceled</p>
+                      @else
+                          <p class="text-danger">No Approve</p>
+                      @endif
+                        </td>
                         <td>{{ $item->created_at }}</td>
                         <td>{{ $item->updated_at }}</td>
                       <td>

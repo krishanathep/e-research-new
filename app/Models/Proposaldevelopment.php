@@ -30,7 +30,7 @@ class Proposaldevelopment extends Model
         return $this->belongsTo(Research::class, 'research_type_id');
     }
 
-    public function Concepapprove(){
-        return $this->belongsTo(Concepapprove::class, 'concept_dev_approve_id');
+    public function concepapprove(){
+        return $this->belongsTo(Concepapprove::class, 'concept_approve_id');
     }
 }
