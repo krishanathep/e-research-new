@@ -13,6 +13,12 @@ class Department extends Model
 
     protected $primaryKey = 'department_id';
 
+    protected $fillable = [
+        'department_name',
+        'department_details',
+        'department_status',
+    ];
+
     public function member(){
         return $this->hasMany(Member::class);
     }

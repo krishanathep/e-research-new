@@ -15,7 +15,7 @@
                             </tr>
                             <tr>
                                 <td>Proposal Sub</td>
-                                <td>{{ $progress->proposal_sub_id }}</td>
+                                <td>{{ $progress->psubmission->proposal_sub_status }}</td>
                             </tr>
                             <tr>
                                 <td>Type</td>

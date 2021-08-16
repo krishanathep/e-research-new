@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Progress;
+use App\Models\Psubmission;
 use Illuminate\Http\Request;
 
 class ProgressReportController extends Controller
@@ -13,7 +15,12 @@ class ProgressReportController extends Controller
      */
     public function index()
     {
-        return view('admin.progress-report.index');
+        $all = Progress::count();
+        $approve = Psubmission::where('proposal_sub_status', '=', '1')->count();
+        $inprogress = Psubmission::where('proposal_sub_status', '<>', '1')->count();
+        $cancel = Psubmission::where('proposal_sub_status', '=', '8')->count();
+
+        return view('admin.progress-report.index', compact('all', 'approve', 'inprogress', 'cancel'));
     }
 
     /**
