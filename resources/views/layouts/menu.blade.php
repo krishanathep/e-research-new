@@ -118,27 +118,21 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin-general-budget.index') }}" class="nav-link {{ request()->is('admin-general-budget*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>แหล่งงบประมาณ</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin-general-research.index') }}" class="nav-link {{ request()->is('admin-general-research*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>ประเภทโครงการวิจัย</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>สถาณะโครงการ</p>
             </a>
         </li>
     </ul>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">
+    <a href="#" class="nav-link {{ request()->is('admin-setting*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-cog"></i>
         <p>
             ตั้งค่า
@@ -147,13 +141,13 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin-setting-banner.index') }}" class="nav-link {{ request()->is('admin-setting-banner*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Banner</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{ route('admin-setting-aboutus.index') }}" class="nav-link {{ request()->is('admin-setting-aboutus*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>About us</p>
             </a>

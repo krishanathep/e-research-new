@@ -13,6 +13,13 @@ class Research extends Model
 
     protected $primaryKey = 'Research_types_id';
 
+    protected $fillable = [
+        'types_name_th',
+        'types_name_en',
+        'Research_types_detail',
+        'types_status',
+    ];
+
     public function concepdevelopment(){
         return $this->hasMany(Concepdevelopment::class);
     }

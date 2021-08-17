@@ -17,6 +17,11 @@ use App\Http\Controllers\CategorysController;
 use App\Http\Controllers\AdditionalController;
 use App\Http\Controllers\general\PrefixController;
 use App\Http\Controllers\general\DepartmentController;
+use App\Http\Controllers\general\BudgetController;
+use App\Http\Controllers\general\ResearchController;
+
+use App\Http\Controllers\settings\AboutUsController;
+use App\Http\Controllers\settings\BannerController;
 
 use App\Http\Controllers\old\ProjectBController;
 use App\Http\Controllers\old\ProjectAController;
@@ -59,6 +64,11 @@ Route::middleware(['auth'])->group(function(){
 
     Route::resource('admin-general-prefix', PrefixController::class);
     Route::resource('admin-general-department', DepartmentController::class);
+    Route::resource('admin-general-budget', BudgetController::class);
+    Route::resource('admin-general-research', ResearchController::class);
+
+    Route::resource('admin-setting-aboutus', AboutUsController::class);
+    Route::resource('admin-setting-banner', BannerController::class);
  
     Route::resource('admin-old-projectbudget', ProjectBController::class);
     Route::resource('admin-old-projectapprove', ProjectAController::class);
