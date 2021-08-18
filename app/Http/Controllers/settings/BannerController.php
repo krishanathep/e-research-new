@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\settings;
 
+use App\Models\Banner;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('admin.settings.banner.index');
+        $banner = Banner::paginate(5);
+        return view('admin.settings.banner.index', compact('banner'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BannerController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.settings.banner.create');
     }
 
     /**
@@ -35,9 +37,26 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'banner_target_url' => 'required',
+            'banner_status' => 'required',
+            'user_admin_id' => 'required',
+            'banner_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
+        $input = $request->all();
+
+        if ($image = $request->file('banner_url')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['banner_url'] = "$profileImage";
+        }
+        Banner::create($input);
+
+        return redirect()->route('admin-setting-banner.index')
+            ->with('success', 'Banner created successfully.');
+    }
     /**
      * Display the specified resource.
      *
@@ -46,7 +65,8 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        return view('admin.settings.banner.show', compact('banner'));
     }
 
     /**
@@ -57,7 +77,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        return view('admin.settings.banner.edit', compact('banner'));
     }
 
     /**
@@ -69,7 +90,27 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'banner_target_url' => 'required',
+            'banner_status' => 'required',
+            'user_admin_id' => 'required',
+        ]);
+  
+        $input = $request->all();
+
+        if ($image = $request->file('banner_url')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['banner_url'] = "$profileImage";
+        }else{
+            unset($input['banner_url']);
+        }
+
+        Banner::findOrFail($id)->update($input);;  
+    
+        return redirect()->route('admin-setting-banner.index')
+                        ->with('success','Banner updated successfully');
     }
 
     /**
@@ -80,6 +121,13 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        
+        unlink(public_path().'/image/'.$banner->banner_url);
+
+        $banner->delete();
+
+        return redirect()->route('admin-setting-banner.index')
+                        ->with('success','Banner deleted successfully');
     }
 }
