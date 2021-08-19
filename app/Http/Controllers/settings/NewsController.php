@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\settings;
 
-use Illuminate\Http\Request;
-use App\Models\Members;
-use App\Models\Shoppinglist;
-use App\Models\Psubmission;
 use App\Models\News;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $members = Members::count();
-        $shoppinglist = Shoppinglist::count();
-        $psubmission = Psubmission::count();
-        $news = News::count();
-
-        return view('admin.index', compact('members', 'shoppinglist', 'psubmission', 'news'));
+        $news = News::paginate(5);
+        return view('admin.settings.news.index', compact('news'));
     }
 
     /**
@@ -32,7 +26,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.settings.news.create');
     }
 
     /**
@@ -43,7 +37,15 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'detail'=> 'required',
+        ]);
+
+        News::create($request->all());
+
+        return redirect()->route('admin-setting-news.index')
+            ->with('success','News created successfully');
     }
 
     /**
@@ -54,7 +56,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $news = News::findOrFail($id);
+        return view('admin.settings.news.show', compact('news'));
     }
 
     /**
@@ -65,7 +68,8 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $news = News::findOrFail($id);
+        return view('admin.settings.news.edit', compact('news'));
     }
 
     /**
@@ -77,7 +81,15 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'detail'=> 'required',
+        ]);
+
+        News::findOrFail($id)->update($request->all());
+
+        return redirect()->route('admin-setting-news.index')
+            ->with('success','News update successfully');
     }
 
     /**
@@ -88,6 +100,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        News::findOrFail($id)->delete();
+
+        return redirect()->route('admin-setting-news.index')
+            ->with('success','News delete successfully');
     }
 }

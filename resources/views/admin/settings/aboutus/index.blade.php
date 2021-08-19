@@ -27,6 +27,7 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Title</th>
                                             <th>Body</th>
                                             <th>Create at</th>
                                             <th>Update at</th>
@@ -37,6 +38,7 @@
                                         @foreach ($aboutus as $item)
                                             <tr>
                                                 <td>{{ $item->id }}</td>
+                                                <td>{{ $item->title }}</td>
                                                 <td>{{ $item->body }}</td>
                                                 <td>{{ $item->created_at }}</td>
                                                 <td>{{ $item->updated_at }}</td>

@@ -23,6 +23,7 @@ use App\Http\Controllers\general\ResearchController;
 use App\Http\Controllers\settings\AboutUsController;
 use App\Http\Controllers\settings\BannerController;
 use App\Http\Controllers\settings\AdminUserController;
+use App\Http\Controllers\settings\NewsController;
 
 use App\Http\Controllers\old\ProjectBController;
 use App\Http\Controllers\old\ProjectAController;
@@ -71,6 +72,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('admin-setting-aboutus', AboutUsController::class);
     Route::resource('admin-setting-banner', BannerController::class);
     Route::resource('admin-setting-admin', AdminUserController::class); 
+    Route::resource('admin-setting-news', NewsController::class);
 
     Route::resource('admin-old-projectbudget', ProjectBController::class);
     Route::resource('admin-old-projectapprove', ProjectAController::class);

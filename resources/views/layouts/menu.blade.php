@@ -153,6 +153,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('admin-setting-news.index') }}" class="nav-link {{ request()->is('admin-setting-news*') ? 'active' : '' }}">
+                <i class="far fa-circle nav-icon"></i>
+                <p>News</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('admin-setting-admin.index') }}" class="nav-link {{ request()->is('admin-setting-admin*') ? 'active' : '' }}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Admin users</p>
